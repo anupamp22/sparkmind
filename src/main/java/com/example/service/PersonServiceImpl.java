@@ -36,6 +36,5 @@ public class PersonServiceImpl implements PersonService {
         if (null != person) {
             em.remove(person);
         }
-    }
-    
+    }    
 }

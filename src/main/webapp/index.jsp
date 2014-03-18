@@ -1,414 +1,263 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Spring MVC and Hibernate Template</title>
-
-  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css" rel="stylesheet">
-
-  <!--
-  IMPORTANT:
-  This is Heroku specific styling. Remove to customize.
-  -->
-  <link href="http://heroku.github.com/template-app-bootstrap/heroku.css" rel="stylesheet">
-  <style type="text/css">
-    .instructions {
-      display: none;
-    }
-
-    .instructions li {
-      margin-bottom: 10px;
-    }
-
-    .instructions h2 {
-      margin: 18px 0;
-    }
-
-    .instructions blockquote {
-      margin-top: 10px;
-    }
-
-    .screenshot {
-      margin-top: 10px;
-      display: block;
-    }
-
-    .screenshot a {
-      padding: 0;
-      line-height: 1;
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .screenshot img, .tool-choice img {
-      border: 1px solid #ddd;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
-      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-    }
-  </style>
-  <!-- /// -->
-  <script type="text/javascript">
-    <!--
-    function appname() {
-      return location.hostname.substring(0, location.hostname.indexOf("."));
-    }
-    // -->
-  </script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>SparkMind Inc.</title>
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4"></script>
+	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
+   	<script type="text/javascript" src="js/script.js"></script>	
 </head>
 
-<body onload="prettyPrint();">
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a href="/" class="brand">Spring MVC and Hibernate Template</a>
-      <!--
-      IMPORTANT:
-      This is Heroku specific markup. Remove to customize.
-      -->
-      <a href="/" class="brand" id="heroku">by <strong>heroku</strong></a>
-      <!-- /// -->
-    </div>
-  </div>
-</div>
+<body>
+	<div id="masthead">
+		<a href="#Home" id="homelink"><img src="image/sparkmind.gif" alt="my company image"/></a>
+		<p id="today">March 6, 2014</p>
+		<!-- <p id="today">Sign In</p>
+		<p id="today">Sign UP</p> -->
+		<ul class="navlinks">
+			<li class="first"><a href="#Home" id="a_home">Home</a></li>
+			<li><a href="#">About us</a>
+				<ul class="sub_menu">
+					<li><a href="#" id="a_company">Company</a></li> 
+					<li><a href="#" id="a_vision">Vision</a></li>
+					<li><a href="#"id="a_mission">Mission</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Products and Services</a>
+				<ul>
+					<li><a href="#">Programming</a>
+					<ul>
+						<li><a href="#" id="a_spring">Spring and Hibernate</a></li>
+						<li><a href="#" id="a_j2ee">J2EE stack</a></li>
+						<li><a href="#" id="a_java">Java stack</a></li>							
+					</ul>
+					</li> 
+					<li><a href="#">Data Mining</a>
+					<ul>
+						<li><a href="#" id="a_python">Python</a></li>
+						<li><a href="#" id="a_R">R</a></li>
+						<li><a href="#" id="a_matlab">Matlab</a></li>
+					</ul>
+					</li>
+					<li><a href="#">System Integration</a>
+					<ul>
+						<li><a href="#" id="a_SOAP">SOAP webservice</a></li>
+						<li><a href="#" id="a_REST">REST webservice</a></li>
+					</ul>
+					</li>
+				</ul>
+			</li>
+			<li>Management Team</li>
+			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</li>
+			<li><a href="#" id="a_contact">Contact us</a></li>
+			<li class="last"><a href="#" id="a_UserLogin">User Login</a>
+					<ul>
+						<li><a href="#" id="a_SignUp">New User-Sign Up</a></li>
+						<li><a href="#" id="a_SignIn">Existing User-Sign In</a></li>
+					</ul>			
+			</li>
+		</ul>		
+	</div>
 
-<div class="container" id="getting-started">
-<div class="row">
-<div class="span8 offset2">
-<h1 class="alert alert-success">Your app is ready!</h1>
+	<div id="content">
+		<!--<h1><b>About SparkMind </b>Inc.</h1> -->
+		<div id ="Home">
 
-<div class="page-header">
-  <h1>Get started with your Spring MVC and Hibernate Application</h1>
-</div>
+		<h2>Home</h2>
+		<p> SparkMind Technologies is a technology consulting services company specialized in the area of web application development and maintenance (ADM), system architecture and design, integration and support operating primarily using following technology stack: <b>Spring, Hibernate, Java, J2EE, jQuery, Ruby on Rails, MySql and Php.</b>
+		In addition, we also do specialize in custom application development on Salesforce cloud using <b>Apex and Visualforce.</b>   
+		</p>
+		<p> 
+		We specialize in open source technology stack with deep sense of architecture and design. We design and develop the applications with keen sense of performance and scalability.
+		</p>
+		<p>
+		We bring extensive domain knowledge of financial services, eCommerce and blend them with our  deep software expertise to create innovative solutions.
+		</p>
+		<p>
+		We believe that writing a software is both art and science. Software is not that something written once and for all. To write a good piece of code, one has to constantly strive for a good sense of design, keep refactoring the code and always think how the code can be scaled in large distributed multi-tiered environment with hundreds of thousands of users. Our unique value proposition is to bring expert design patterns, with highly modular and scalable algorithimic solutions.
+		</p>
+		<p>
+		You can write to us, and avail our services. We help you with application development needs with above technology stack. Your satisfaction is what we strive for. If not satisfied, we will gurantee to pay you back with complete free services.
+		</p>
+		<p>
+		</div>
+		<div id="AboutUs">
+			<div id="Company">
+			<h2>Company</h2>
+			<p>
+				SparkMind Inc. is a technology consulting services company specialized in the area of application development and maintenance (ADM), system architecture and design, integration and support using following technology stack: <b>Spring, Hibernate, Java, J2EE, jQuery, Ruby on Rails, MySql and Php.</b> 
+			</p>
 
-<div style="margin-bottom: 20px">
-  This is a template for a web application that uses Spring MVC and Hibernate. The sample code is a simple CRUD page
-  that manipulates records for a single model object. To try it out go to the <a href="people/">people page</a>. Then
-  use Eclipse or the Command Line to deploy some changes.
-</div>
+			</div>
 
-<ul id="tab" class="nav nav-tabs">
-  <li class="active"><a href="#eclipse-instructions" data-toggle="tab">Use Eclipse 3.7</a></li>
-  <li><a href="#cli-instructions" data-toggle="tab">Use Command Line</a></li>
-</ul>
+			<div id="Vision">
+			<h2>Our Vision</h2>
+			<p>
+				Our vision is to build web and mobile applications and platforms using the open source stack.
+			</p>
 
-<div class="tab-content">
+			</div>
 
+			<div id ="Mission">
+				<h2>Our Mission</h2>
+				<p> SparkMind is committed to provide the innovative solutions using the open source technology stack to increase the operational efficiency and drive down the cost.	
+				</p>			
+			</div>
+			<div id ="error">
+				<h2>Error</h2>
+				<p> This page is in construction. Please visit later.
+				</p>			
+			</div>
+		</div>
+		<div id="div_contact">
+	 	<form id="form_contact" class="blocks" action="#" method="post">
+		 		<p>
+		 			<label>Name:</label>
+		 			<input type="text" class="text1" name="name" id="name"/> 
+		 		</p>
+		 	
+		 		<p>
+		 			<label>Organization:</label>
+		 			<input type="text" class="text1" name="company" id="company"/> 
+		 		</p>
+		 		<p>
+		 			<label>Email:</label>
+		 			<input type="text" class="text1" name="email" id="email"/> 
+		 		</p>
+		 		<p>
+		 			<label>Contact number:</label>
+		 			<input type="text" class="text1" name="phone" id="phone"/> 
+		 		</p>
+		 		<p>
+		 			<label>Message:</label>
+		 			<textarea class="textarea" name="message" id="message"> </textarea>
+		 		</p>
+		 		<p>
+		 			<label></label>
+		 			<input type="submit" class="button" value="Submit"/> 
+		 		</p>
 
-<div id="eclipse-instructions" class="instructions tab-pane active">
-  <a name="using-eclipse"></a>
+		 	</form>
+	</div>
+	
+	<div id="feed1">
+	</div>
+	
+	<div id="feed2">
+		<p></p>
+	</div>
+	<div id="feed3">
+		<p></p>
+	</div>
+	<div id="feed4">
+		<p></p>
+	</div>	
+	<div id="searchResults">Loading the search results...</div>	
+	</div>
+	
+	
+	
+	<div id="sidebar">
+		<div id="search"></div>
+		<!--  <form id="search" method="post">
+			<input type="text" id="search_text" class="text"/>
+			<input type="submit" value="Search"/>
+		</form>-->
+		<div id="news-feed">
+			<h3>Tech Trend</h3>
+			<h4>Latest in technology<br></h4>
+			<p>
+				Wanna read Gartner Reports?
+			</p>
+			<a href="http://www.gartner.com/newsroom/id/2603623"><img src="image/data-analytics.jpg" alt="Gartner reports"></a>
+		</div>
+	
+		<div id="post-archive">
+			<h3>News feed</h3>
+			<div id="feed5"> </div>
+			<!--<table cellspacing="2">
+				<caption>March 2014</caption>
+				<thead>
+					<tr>
+					<th scope="col" class="sun">Sun</th>
+					<th scope="col" class="mon">Mon</th>
+					<th scope="col" class="tue">Tue</th>
+					<th scope="col" class="wed">Wed</th>
+					<th scope="col" class="thu">Thu</th>
+					<th scope="col" class="fri">Fri</th>
+					<th scope="col" class="sat">Sat</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td class="sun"></td>
+					<td class="mon"></td>
+					<td class="tue"></td>
+					<td class="wed"></td>
+					<td class="thu"></td>
+					<td class="fri"></td>
+					<td class="sat">1</td>
+					</tr>
+					<tr>
+					<td class="sun">2</td>
+					<td class="mon">3</td>
+					<td class="tue">4</td>
+					<td class="wed">5</td>
+					<td class="thu">6</td>
+					<td class="fri"><a href="#">7</a></td>
+					<td class="sat">8</td>
+					</tr>
+					<tr>
+					<td class="sun">9</td>
+					<td class="mon">10</td>
+					<td class="tue"><a href="#">11</a></td>
+					<td class="wed">12</td>
+					<td class="thu">13</td>
+					<td class="fri">14</td>
+					<td class="sat">15</td>
+					</tr>
+					<tr>
+					<td class="sun">16</td>
+					<td class="mon">17</td>
+					<td class="tue">18</td>
+					<td class="wed">19</td>
+					<td class="thu"><a href="#">20</a></td>
+					<td class="fri"><a href="#">21</a></td>
+					<td class="sat">22</td>
+					</tr>
+					<tr>
+					<td class="sun">23</td>
+					<td class="mon"><a href="#">24</a></td>
+					<td class="tue">25</td>
+					<td class="wed"><a href="#">26</a></td>
+					<td class="thu">27</td>
+					<td class="fri">28</td>
+					<td class="sat">29</td>
+					</tr>
+					<tr>
+					<td class="sun">30</td>
+					<td class="mon">31</td>
+					<td class="tue"></td>
+					<td class="wed"></td>
+					<td class="thu"></td>
+					<td class="fri"></td>
+					<td class="sat"></td>
+					</tr>
+				</tbody>
+			</table> -->
+		</div>
+	</div>
 
-  <div class="alert alert-warn">If you already created this app from the Heroku Eclipse Plugin, proceed to <a
-      href="#step3">Step 3</a>.
-    The following steps depends on the Heroku Eclipse plugin. If you do not have the Heroku Eclipse plugin installed and
-    configured,
-    follow a <a href="https://devcenter.heroku.com/articles/getting-started-with-heroku-eclipse#installation-and-setup"
-                target="_blank">step-by-step guide</a>
-    on Dev Center to install the plugin and
-    configure the plugin in Eclipse.
-  </div>
+	<div id="footer">
+		<i>All Rights Reserved--</i> SparkMind Inc. @ 2014
+		
+	</div>
+	<style type="text/css"> @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css") </style>
 
-  <h2>Step 1.Configure Heroku Eclipse preferences</h2>
-  <ol>
-    <li>Open <code>Eclipse</code><i class="icon-chevron-right"></i><code>Preferences</code></li>
-    <li>Select <code>Heroku</code></li>
-    <li>Enter your <code>Email</code> and <code>Password</code></li>
-    <li>Click <code>Login</code>. If your login was successful, your Heroku API key would be populated in the
-      <code>API Key</code> field.<br/>
-
-      <div class="modal hide" id="apiPreferences">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Setup API Key</h3>
-        </div>
-        <div class="modal-body">
-          <img src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/heroku_preferences.png'
-               alt="setup api key"/>
-        </div>
-      </div>
-                    <span class="screenshot">
-                      <a href="#apiPreferences" data-toggle="modal">
-                        <img
-                            src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/heroku_preferences.png'
-                            alt="setup api key" width="100">
-                        <i class="icon-zoom-in"></i>
-                      </a>
-                    </span>
-    </li>
-    <li>In the SSH Key section, click <code>Generate</code> if you need to generate a new key.
-      If you have previously generated and saved a SSH key is automatically loaded from the default location. If it is
-      not
-      in the default location, click <code>Load SSH Key</code><br/>
-    </li>
-    <li>Click on <code>Add</code> to add your SSH Key to Heroku
-      <div class="modal hide" id="sshkeyadd">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Add SSH Key to Heroku</h3>
-        </div>
-        <div class="modal-body">
-          <img src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/heroku_ssh_add.png'
-               alt="Add SSH Key to Heroku"/>
-        </div>
-      </div>
-	                    <span class="screenshot">
-	                      <a href="#sshkeyadd" data-toggle="modal">
-                          <img
-                              src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/heroku_ssh_add.png'
-                              alt="Add SSH Key to Heroku" width="100"/>
-                          <i class="icon-zoom-in"></i>
-                        </a>
-	                    </span>
-    </li>
-  </ol>
-
-  <h2>Step 2. Importing this App</h2>
-  <ol>
-    <li>Open <code>File</code><i class="icon-chevron-right"></i><code>Import</code> and expand the Heroku section
-      <div class="modal hide" id="importAppSelect">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Import App</h3>
-        </div>
-        <div class="modal-body">
-          <img src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/import_app_1.png'
-               alt="Import App"/>
-        </div>
-      </div>
-	                    <span class="screenshot">
-	                      <a href="#importAppSelect" data-toggle="modal">
-                          <img
-                              src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/import_app_1.png'
-                              alt="Import App" width="100"/>
-                          <i class="icon-zoom-in"></i>
-                        </a>
-	                    </span>
-
-    </li>
-    <li>Select <code>Existing Heroku Application</code><i class="icon-chevron-right"></i><code>Next</code></li>
-    <li>Select <code>
-      <script>document.write(appname());</script>
-    </code> and click <code>Next</code>
-
-      <div class="modal hide" id="importApp2">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Select App to import</h3>
-        </div>
-        <div class="modal-body">
-          <img src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/import_app_2.png'
-               alt="Create app from template"/>
-        </div>
-      </div>
-	                    <span class="screenshot">
-	                      <a href="#importApp2" data-toggle="modal">
-                          <img
-                              src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/import_app_2.png'
-                              alt="Create app from template" width="100"/>
-                          <i class="icon-zoom-in"></i>
-                        </a>
-	                    </span>
-    </li>
-    <li>Choose <code>Auto detected project</code>
-
-      <div class="modal hide" id="importApp3">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Project Type selection</h3>
-        </div>
-        <div class="modal-body">
-          <img src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/import_app_3.png'
-               alt="Project Type selection"/>
-        </div>
-      </div>
-	                    <span class="screenshot">
-	                      <a href="#importApp3" data-toggle="modal">
-                          <img
-                              src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/import_app_3.png'
-                              alt="Project Type selection" width="100"/>
-                          <i class="icon-zoom-in"></i>
-                        </a>
-	                    </span>
-    </li>
-    <li>Click <code>Finish</code> to complete the import. The plugin will use <a href="http://www.eclipse.org/egit/">eGit</a>
-      and clone the source code repository to a local Git repository.
-      <div class="modal hide" id="importApp4">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Local Project and Git Repository</h3>
-        </div>
-        <div class="modal-body">
-          <img src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/create_app_template_4.png'
-               alt="Local Project and Git Repository"/>
-        </div>
-      </div>
-	                    <span class="screenshot">
-	                      <a href="#importApp4" data-toggle="modal">
-                          <img
-                              src='https://template-app-instructions-screenshots.s3.amazonaws.com/eclipse/create_app_template_4.png'
-                              alt="Local Project and Git Repository" width="100"/>
-                          <i class="icon-zoom-in"></i>
-                        </a>
-	                    </span>
-    </li>
-  </ol>
-  <a name="step3" id="step3"></a>
-
-  <h2>Step 3. Makes some changes to the app</h2>
-  <ol>
-    <li>Open <code>PersonServiceImpl.java</code></li>
-    <li>Query the people in alphabetical order by replacing line 29 with the following two lines:
-                <pre class="prettyprint once language-java">
-Root&lt;Person&gt; from = c.from(Person.class);
-c.orderBy(em.getCriteriaBuilder().asc(from.get("lastName")));
-                </pre>
-    </li>
-  </ol>
-
-  <h2>Step 4. Deploy to Heroku</h2>
-  <ol>
-    <li>Right-click the project root and choose <code>Team</code> <i class="icon-chevron-right"></i> <code>Commit</code>
-    </li>
-    <li>Enter a commit message and click <code>Commit</code>
-
-      <div class="modal hide" id="commitChanges">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Commit Changes</h3>
-        </div>
-        <div class="modal-body">
-          <img src="https://s3.amazonaws.com/template-app-instructions-screenshots/eclipse/6-5-commit.png"
-               alt="Commit Changes"/>
-        </div>
-      </div>
-                <span class="screenshot">
-                  <a href="#commitChanges" data-toggle="modal">
-                    <img src="https://s3.amazonaws.com/template-app-instructions-screenshots/eclipse/6-5-commit.png"
-                         alt="Commit Changes" width="100"/>
-                    <i class="icon-zoom-in"></i>
-                  </a>
-                </span>
-    </li>
-    <li>Right-click the project root and choose <code>Team</code> <i class="icon-chevron-right"></i> <code>Push to
-      Upstream</code></li>
-    <li>Review the push results. At the bottom, a "... deployed to Heroku" message will appear.
-      <div class="modal hide" id="pushResults">
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal"><i class="icon-remove"></i></a>
-
-          <h3>Push Results</h3>
-        </div>
-        <div class="modal-body">
-          <img src="https://s3.amazonaws.com/template-app-instructions-screenshots/eclipse/6-8-push-result.png"
-               alt="Push Results"/>
-        </div>
-      </div>
-                <span class="screenshot">
-                  <a href="#pushResults" data-toggle="modal">
-                    <img
-                        src="https://s3.amazonaws.com/template-app-instructions-screenshots/eclipse/6-8-push-result.png"
-                        alt="Push Results" width="100"/>
-                    <i class="icon-zoom-in"></i>
-                  </a>
-                </span>
-    </li>
-  </ol>
-
-  <div class="hero-unit">
-    <h1>Done!</h1>
-
-    <p>You've just cloned, modified, and deployed a brand new app.</p>
-    <a href="people/" class="btn btn-primary btn-large">See your changes</a>
-
-    <p style="margin-top: 20px">Learn more at the
-      <a href="http://devcenter.heroku.com/categories/java">Heroku Dev Center</a></p>
-  </div>
-</div>
-
-
-<div id="cli-instructions" class="instructions tab-pane">
-  <a name="using-cli"></a>
-
-  <h2>Step 1. Setup your environment</h2>
-  <ol>
-    <li>Install the <a href="http://toolbelt.heroku.com">Heroku Toolbelt</a>.</li>
-    <li>Install <a href="http://maven.apache.org/download.html">Maven</a>.</li>
-  </ol>
-
-  <h2>Step 2. Login to Heroku</h2>
-  <code>heroku login</code>
-  <blockquote>
-    Be sure to create, or associate an SSH key with your account.
-  </blockquote>
-            <pre>
-$ heroku login
-Enter your Heroku credentials.
-Email: naaman@heroku.com
-Password:
-Could not find an existing public key.
-Would you like to generate one? [Yn] Y
-Generating new SSH public key.
-Uploading SSH public key /Users/Administrator/.ssh/id_rsa.pub
-Authentication successful.</pre>
-
-  <h2>Step 3. Clone the App</h2>
-  <code>git clone -o heroku git@heroku.com:<script>document.write(appname())</script>.git</code>
-
-  <h2>Step 4. Makes some changes to the app</h2>
-  <ol>
-    <li>Open <code>src/main/java/com/example/PersonServiceImpl.java in your favorite editor</code></li>
-    <li>Query the people in alphabetical order by replacing line 29 with the following two lines:
-                <pre class="prettyprint once language-java">
-Root&lt;Person&gt; from = c.from(Person.class);
-c.orderBy(em.getCriteriaBuilder().asc(from.get("lastName")));
-                </pre>
-    </li>
-  </ol>
-
-  <h2>Step 5. Make sure the app still compiles</h2>
-  <code>mvn clean package</code>
-
-  <h2>Step 6. Deploy your changes</h2>
-  <ol>
-    <li><code>git commit -am "New changes to deploy"</code></li>
-    <li><code>git push heroku master</code></li>
-  </ol>
-
-  <div class="hero-unit">
-    <h1>Done!</h1>
-
-    <p>You've just cloned, modified, and deployed a brand new app.</p>
-    <a href="people/" class="btn btn-primary btn-large">See your changes</a>
-
-    <p style="margin-top: 20px">Learn more at the
-      <a href="http://devcenter.heroku.com/categories/java">Heroku Dev Center</a></p>
-  </div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- end tab content -->
-</div>
-
-
-<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
 </body>
+
 </html>
