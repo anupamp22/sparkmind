@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title>SparkMind Inc.</title>
-	<link rel="stylesheet" type="text/css" href="css/global.css">
-	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4"></script>
-	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
-   	<script type="text/javascript" src="js/script.js"></script>	
+	<link href="<c:url value="/static/css/global.css "/>" rel="stylesheet">
+	<script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />"></script>
+	<script src="<c:url value="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4" />"></script>
+	<script src="<c:url value="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" />"></script>
+	<script src="<c:url value="/static/js/script.js" />"></script>
 </head>
 
 <body>
 	<div id="masthead">
-		<a href="#Home" id="homelink"><img src="image/sparkmind.gif" alt="my company image"/></a>
+		<a href="#Home" id="homelink"><img src="<c:url value="/static/image/sparkmind.gif" />" alt="my company image"/></a>
 		<p id="today">March 6, 2014</p>
 		<!-- <p id="today">Sign In</p>
 		<p id="today">Sign UP</p> -->
@@ -173,7 +173,7 @@
 			<p>
 				Wanna read Gartner Reports?
 			</p>
-			<a href="http://www.gartner.com/newsroom/id/2603623"><img src="image/data-analytics.jpg" alt="Gartner reports"></a>
+			<a href="http://www.gartner.com/newsroom/id/2603623"><img src="<c:url value="/static/image/data-analytics.jpg" />" alt="Gartner reports"></a>
 		</div>
 	
 		<div id="post-archive">
