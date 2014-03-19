@@ -5,17 +5,17 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title>SparkMind Inc.</title>
-	<link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/static/css/global.css">
+	<link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/resources/css/global.css">
 	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4"></script>
 	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
-   	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/script.js"></script>	
+   	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/script.js"></script>	
 
 </head>
 
 <body>
 	<div id="masthead">
-		<a href="#Home" id="homelink"><img src="<c:url value="/static/image/sparkmind.gif" />" alt="my company image"/></a>
+		<a href="#Home" id="homelink"><img src="${pageContext.request.contextPath}/resources/image/sparkmind.gif" alt="my company image"/></a>
 		<p id="today">March 6, 2014</p>
 		<!-- <p id="today">Sign In</p>
 		<p id="today">Sign UP</p> -->
@@ -174,7 +174,7 @@
 			<p>
 				Wanna read Gartner Reports?
 			</p>
-			<a href="http://www.gartner.com/newsroom/id/2603623"><img src="<c:url value="/static/image/data-analytics.jpg" />" alt="Gartner reports"></a>
+			<a href="http://www.gartner.com/newsroom/id/2603623"><img src="${pageContext.request.contextPath}/resources/image/data-analytics.jpg" alt="Gartner reports"></a>
 		</div>
 	
 		<div id="post-archive">
