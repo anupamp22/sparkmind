@@ -14,7 +14,10 @@
     <context:annotation-config />
     <context:component-scan base-package="com.example" />
     
-    <mvc:resources mapping="/static/**" location="./webapp/static, classpath:/static/" />
+    <mvc:resources mapping="/static/js/**" location="/js/" />
+    <mvc:resources mapping="/static/image/**" location="/image/" />
+    <mvc:resources mapping="/static/js/**" location="/js/" />
+    
     <mvc:default-servlet-handler />    
     <mvc:annotation-driven/>
 
