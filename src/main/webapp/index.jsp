@@ -5,11 +5,12 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title>SparkMind Inc.</title>
-	<link href="<c:url value="/static/css/global.css "/>" rel="stylesheet">
-	<script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />"></script>
-	<script src="<c:url value="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4" />"></script>
-	<script src="<c:url value="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" />"></script>
-	<script src="<c:url value="/static/js/script.js" />"></script>
+	<link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/static/css/global.css">
+	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4"></script>
+	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
+   	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/script.js"></script>	
+
 </head>
 
 <body>
