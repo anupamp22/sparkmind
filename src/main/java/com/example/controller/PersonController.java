@@ -19,7 +19,6 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @RequestMapping("/")
     public String listPeople(Map<String, Object> map) {
 
         map.put("person", new Person());
