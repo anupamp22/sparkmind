@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:url value="/email/send" var="sendUrl"/>
+
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -9,8 +11,9 @@
 	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4"></script>
 	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
-   	<script type="text/javascript" src="resources/js/script.js"></script>	
-
+	<script type="text/javascript" src="resources/js/jquery.validate.min.js"></script>	
+   	<script type="text/javascript" src="resources/js/script.js"></script>
+   	<script type="text/javascript" src="resources/js/util.js"></script>
 </head>
 
 <body>
@@ -115,7 +118,7 @@
 			</div>
 		</div>
 		<div id="div_contact">
-	 	<form id="form_contact" class="blocks" action="#" method="post">
+	 	<form id="form_contact" class="blocks">
 		 		<p>
 		 			<label>Name:</label>
 		 			<input type="text" class="text1" name="name" id="name"/> 
@@ -137,11 +140,10 @@
 		 			<label>Message:</label>
 		 			<textarea class="textarea" name="message" id="message"> </textarea>
 		 		</p>
-		 		<p>
-		 			<label></label>
-		 			<input type="submit" class="button" value="Submit"/> 
+		 		<p align="center">
+		 			<input type="submit" class="button" value="Send" id="submit"/>
+			 		<input type="reset" class="button" value="Reset" id="reset" />
 		 		</p>
-
 		 	</form>
 	</div>
 	
@@ -159,8 +161,6 @@
 	</div>	
 	<div id="searchResults">Loading the search results...</div>	
 	</div>
-	
-	
 	
 	<div id="sidebar">
 		<div id="search"></div>
@@ -252,13 +252,11 @@
 			</table> -->
 		</div>
 	</div>
-
+	<div id='msgbox' title='' style='display:none'></div>
 	<div id="footer">
-		<i>All Rights Reserved--</i> SparkMind Inc. @ 2014
-		
-	</div>
+		<i>All Rights Reserved--</i> SparkMind Inc. @ 2014		
+	</div>	
 	<style type="text/css"> @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css") </style>
-
 </body>
 
 </html>
