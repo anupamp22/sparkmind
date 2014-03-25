@@ -56,8 +56,8 @@
 				</ul>
 			</li>
 			<li>Management Team</li>
-			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</li>
-			<li><a href="#" id="a_contact">Contact us</a></li>
+			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</a></li>
+			<li><a href="${pageContext.request.contextPath}/email" id="a_contact">Contact us</a></li>
 			<li class="last"><a href="#" id="a_UserLogin">User Login</a>
 					<ul>
 						<li><a href="#" id="a_SignUp">New User-Sign Up</a></li>

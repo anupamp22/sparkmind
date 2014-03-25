@@ -8,10 +8,90 @@
 
     <properties>
         <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+        <aspectj.version>1.6.10</aspectj.version>
+        <slf4j.version>1.6.1</slf4j.version>
+  		<log4j.version>1.2.14</log4j.version>
+  		<jackson.version>1.9.3</jackson.version>
+  		<cglib.version>2.2</cglib.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+    	<!-- Cglib is a powerful, high performance and quality Code Generation Library, 
+			It is used to extend JAVA classes and implements interfaces at runtime.  -->
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib-nodep</artifactId>
+				<version>${cglib.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+		<!-- Data Mapper package is a high-performance data binding package built 
+			on Jackson JSON processor -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	
+		<!-- Jackson is a high-performance JSON processor (parser, generator) -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		    
+    	<!-- A seamless aspect-oriented extension to the Java programming language -->
+		<dependency>
+			    <groupId>org.aspectj</groupId>
+			    <artifactId>aspectjrt</artifactId>
+			    <version>${aspectj.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+    
+    	<!-- Logger -->
+	    <dependency>
+	    	<groupId>log4j</groupId>
+	    	<artifactId>log4j</artifactId>
+	    	<version>${log4j.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+	    </dependency>
+	 
+		<!-- The Simple Logging Facade for Java or (SLF4J) serves as a simple facade or abstraction 
+		for various logging frameworks, e.g. java.util.logging, log4j and logback, allowing the end 
+		user to plug in the desired logging framework at deployment time. -->
+	    <dependency>
+	    	<groupId>org.slf4j</groupId>
+	    	<artifactId>slf4j-api</artifactId>
+	    	<version>${slf4j.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+	    </dependency> 
+	    <dependency>
+	    	<groupId>org.slf4j</groupId>
+	    	<artifactId>slf4j-log4j12</artifactId>
+	    	<version>${slf4j.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+	    </dependency>
+	    <dependency>
+	    	<groupId>org.slf4j</groupId>
+	    	<artifactId>jcl-over-slf4j</artifactId>
+	    	<version>${slf4j.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+	    </dependency>
+    
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
