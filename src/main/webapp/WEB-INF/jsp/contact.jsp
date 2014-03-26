@@ -98,12 +98,12 @@
 
 <body>
 	<div id="masthead">
-		<a href="${pageContext.request.contextPath}" id="homelink"><img src="${pageContext.request.contextPath}/resources/image/sparkmind.gif" alt="my company image"/></a>
+		<a href="<c:url value="/"/>" id="homelink"><img src="${pageContext.request.contextPath}/resources/image/sparkmind.gif" alt="my company image"/></a>
 		<p id="today">March 6, 2014</p>
 		<!-- <p id="today">Sign In</p>
 		<p id="today">Sign UP</p> -->
 		<ul class="navlinks">
-			<li class="first"><a href="${pageContext.request.contextPath}" id="a_home">Home</a></li>
+			<li class="first"><a href="<c:url value="/"/>" id="a_home">Home</a></li>
 			<li><a href="#">About us</a>
 				<ul class="sub_menu">
 					<li><a href="#" id="a_company">Company</a></li> 
