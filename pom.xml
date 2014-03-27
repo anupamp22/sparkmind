@@ -13,11 +13,14 @@
   		<log4j.version>1.2.14</log4j.version>
   		<jackson.version>1.9.3</jackson.version>
   		<cglib.version>2.2</cglib.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  		<spring.security.core.version>3.1.1.RELEASE</spring.security.core.version>
+  		<c3p0.version>0.9.1.2</c3p0.version>
+  		<mysql.connector.version>5.1.16</mysql.connector.version>
+  		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-    	<!-- Cglib is a powerful, high performance and quality Code Generation Library, 
+    	    	<!-- Cglib is a powerful, high performance and quality Code Generation Library, 
 			It is used to extend JAVA classes and implements interfaces at runtime.  -->
 			<dependency>
 				<groupId>cglib</groupId>
@@ -92,6 +95,56 @@
 	    	<scope>compile</scope>
 	    </dependency>
     
+    		<!-- Spring Security -->
+		    <dependency>
+		    	<groupId>org.springframework.security</groupId>
+		    	<artifactId>spring-security-core</artifactId>
+		    	<version>${spring.security.core.version}</version>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		    <dependency>
+		    	<groupId>org.springframework.security</groupId>
+		    	<artifactId>spring-security-web</artifactId>
+		    	<version>${spring.security.core.version}</version>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		    <dependency>
+		    	<groupId>org.springframework.security</groupId>
+		    	<artifactId>spring-security-config</artifactId>
+		    	<version>${spring.security.core.version}</version>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		    <dependency>
+		    	<groupId>org.springframework.security</groupId>
+		    	<artifactId>spring-security-taglibs</artifactId>
+		    	<version>${spring.security.core.version}</version>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		    
+			<!-- Database pooling -->
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>${c3p0.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+			
+			<!--  MySQL Connector -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.connector.version}</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>			
+			
+    	    
+    	<!-- Original POM -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
