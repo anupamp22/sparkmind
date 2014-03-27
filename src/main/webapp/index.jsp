@@ -55,7 +55,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>Management Team</li>
+			<li><a href="#"  id="a_ManagementTeam">Management Team </a></li>
 			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</a></li>
 			<li><a href="${pageContext.request.contextPath}/email" id="a_contact">Contact us</a></li>
 			<li><a href="#" id="a_UserLogin">User Login</a>
@@ -116,6 +116,12 @@
 			<div id ="Mission">
 				<h2>Our Mission</h2>
 				<p> SparkMind is committed to provide the innovative solutions using the open source technology stack to increase the operational efficiency and drive down the cost.	
+				</p>			
+			</div>
+			<div id ="ManagementTeam">
+				<h2>Management Team</h2>
+				<p> Anupam Priyadarshi is the CEO and Founder of SparkMind Technologies Inc. He has extensive experience of Software development by implementing and deploying complex solutions for eCommerce and financial services industry.
+				His deep technical skills along with extensive domain expertise is the key to success of SparkMind tech.	
 				</p>			
 			</div>
 			<div id ="error">
