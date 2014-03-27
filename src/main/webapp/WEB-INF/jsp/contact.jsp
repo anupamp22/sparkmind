@@ -138,12 +138,19 @@
 			<li>Management Team</li>
 			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</a></li>
 			<li><a href="${pageContext.request.contextPath}/email" id="a_contact">Contact us</a></li>
-			<li class="last"><a href="#" id="a_UserLogin">User Login</a>
+			<li><a href="#" id="a_UserLogin">User Login</a>
 					<ul>
 						<li><a href="#" id="a_SignUp">New User-Sign Up</a></li>
 						<li><a href="#" id="a_SignIn">Existing User-Sign In</a></li>
 					</ul>			
 			</li>
+			<li class="last"><a href="#" id="a_UserLogin">Follow Us On Social</a>
+					<ul>
+						<li><a href="#" id="a_Facebook">Facebook</a></li>
+						<li><a href="#" id="a_Twitter">Twitter</a></li>
+						<li><a href="#" id="a_LinkedIn">LinkedIn</a></li>
+					</ul>			
+			</li>				
 		</ul>		
 	</div>
 	
@@ -173,7 +180,7 @@
 					<label for='senderMessage'>Message:</label>
 					<textarea name="textBody" id="textBody" name="textBody" class="textarea">Email message here</textarea>
 				</p>
-				<p>
+				<p align="center">
 					<input type='button' value='Reset' id='reset' />
 					<input type='submit' value='Send' id='submit'/>
 				</p>

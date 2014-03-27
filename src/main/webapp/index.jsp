@@ -58,12 +58,19 @@
 			<li>Management Team</li>
 			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</a></li>
 			<li><a href="${pageContext.request.contextPath}/email" id="a_contact">Contact us</a></li>
-			<li class="last"><a href="#" id="a_UserLogin">User Login</a>
+			<li><a href="#" id="a_UserLogin">User Login</a>
 					<ul>
 						<li><a href="#" id="a_SignUp">New User-Sign Up</a></li>
 						<li><a href="#" id="a_SignIn">Existing User-Sign In</a></li>
 					</ul>			
 			</li>
+			<li class="last"><a href="#" id="a_UserLogin">Follow Us On Social</a>
+					<ul>
+						<li><a href="#" id="a_Facebook">Facebook</a></li>
+						<li><a href="#" id="a_Twitter">Twitter</a></li>
+						<li><a href="#" id="a_LinkedIn">LinkedIn</a></li>
+					</ul>			
+			</li>			
 		</ul>		
 	</div>
 
@@ -85,7 +92,7 @@
 		We believe that writing a software is both art and science. Software is not that something written once and for all. To write a good piece of code, one has to constantly strive for a good sense of design, keep refactoring the code and always think how the code can be scaled in large distributed multi-tiered environment with hundreds of thousands of users. Our unique value proposition is to bring expert design patterns, with highly modular and scalable algorithimic solutions.
 		</p>
 		<p>
-		You can write to us, and avail our services. We help you with application development needs with above technology stack. Your satisfaction is what we strive for. If not satisfied, we will gurantee to pay you back with complete free services.
+		You can write to us, and avail our services. We help you with application development needs with above technology stack. Your satisfaction is what we strive for. If not satisfied, we will guarantee to pay you back with complete free services.
 		</p>
 		<p>
 		</div>
@@ -117,7 +124,7 @@
 				</p>			
 			</div>
 		</div>
-		<div id="div_contact">
+		<!--  <div id="div_contact">
 	 	<form id="form_contact" class="blocks">
 		 		<p>
 		 			<label>Name:</label>
@@ -145,7 +152,7 @@
 			 		<input type="reset" class="button" value="Reset" id="reset" />
 		 		</p>
 		 	</form>
-	</div>
+	</div>-->
 	
 	<div id="feed1">
 	</div>
