@@ -6,16 +6,14 @@
 
 <html>
 <head>
-	
+	<title>SparkMind Contact Us</title>
 	<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
 	<link href= "resources/css/global.css" rel="stylesheet" type="text/css">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<script type="text/javascript" src="resources/js/jquery.validate.min.js"></script>	
 	<script type='text/javascript' src='<c:url value="/resources/js/util.js"/>'></script>
-
-	<title>SparkMind Contact Us</title>
-
+	
 	<script type='text/javascript'>
 	$(function() {
 		init();
@@ -98,12 +96,12 @@
 
 <body>
 	<jsp:include page="Header.jsp" />
-	<h1 id='banner'>Compose Email</h1>
+	<!-- <h1 id='banner'>Compose Email</h1> -->
 	
 	<div id=content>
 		<form id='emailForm' class="blocks">
   			<fieldset>
-				<legend>New Email</legend>
+				<legend>Compose Email</legend>
 				<p>
 					<label for='senderName'>Name*:</label>
 					<input type='text' id='senderName' name='senderName' class="text1"/>

@@ -8,7 +8,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<title>SparkMind Inc.</title>
 	<link href= "resources/css/global.css" rel="stylesheet" type="text/css">
-	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://www.google.com/jsapi?key=AIzaSyBBA68G13-u82FGEMBFEx7VrSGzt7AvRE4"></script>
 	<script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
 	<script type="text/javascript" src="resources/js/jquery.validate.min.js"></script>	
@@ -21,7 +21,6 @@
 	<div id="content">
 		<!--<h1><b>About SparkMind </b>Inc.</h1> -->
 		<div id ="Home">
-
 		<h2>Home</h2>
 		<p> SparkMind Technologies is a technology consulting services company specialized in the area of web application development and maintenance (ADM), system architecture and design, integration and support operating primarily using following technology stack: <b>Spring, Hibernate, Java, J2EE, jQuery, Ruby on Rails, MySql and Php.</b>
 		In addition, we also do specialize in custom application development on Salesforce cloud using <b>Apex and Visualforce.</b>   
