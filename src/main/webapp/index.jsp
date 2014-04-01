@@ -17,63 +17,7 @@
 </head>
 
 <body>
-	<div id="masthead">
-		<a href="${pageContext.request.contextPath}" id="homelink"><img src="${pageContext.request.contextPath}/resources/image/sparkmind.gif" alt="my company image"/></a>
-		<p id="today">March 6, 2014</p>
-		<!-- <p id="today">Sign In</p>
-		<p id="today">Sign UP</p> -->
-		<ul class="navlinks">
-			<li class="first"><a href="${pageContext.request.contextPath}" id="a_home">Home</a></li>
-			<li><a href="#">About us</a>
-				<ul class="sub_menu">
-					<li><a href="#" id="a_company">Company</a></li> 
-					<li><a href="#" id="a_vision">Vision</a></li>
-					<li><a href="#"id="a_mission">Mission</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Products and Services</a>
-				<ul>
-					<li><a href="#">Programming</a>
-					<ul>
-						<li><a href="#" id="a_spring">Spring and Hibernate</a></li>
-						<li><a href="#" id="a_j2ee">J2EE stack</a></li>
-						<li><a href="#" id="a_java">Java stack</a></li>							
-					</ul>
-					</li> 
-					<li><a href="#">Data Mining</a>
-					<ul>
-						<li><a href="#" id="a_python">Python</a></li>
-						<li><a href="#" id="a_R">R</a></li>
-						<li><a href="#" id="a_matlab">Matlab</a></li>
-					</ul>
-					</li>
-					<li><a href="#">System Integration</a>
-					<ul>
-						<li><a href="#" id="a_SOAP">SOAP webservice</a></li>
-						<li><a href="#" id="a_REST">REST webservice</a></li>
-					</ul>
-					</li>
-				</ul>
-			</li>
-			<li><a href="#"  id="a_ManagementTeam">Management Team </a></li>
-			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</a></li>
-			<li><a href="${pageContext.request.contextPath}/email" id="a_contact">Contact us</a></li>
-			<li><a href="#" id="a_UserLogin">User Login</a>
-					<ul>
-						<li><a href="#" id="a_SignUp">New User-Sign Up</a></li>
-						<li><a href="#" id="a_SignIn">Existing User-Sign In</a></li>
-					</ul>			
-			</li>
-			<li class="last"><a href="#" id="a_UserLogin">Follow Us On Social</a>
-					<ul>
-						<li><a href="#" id="a_Facebook">Facebook</a></li>
-						<li><a href="#" id="a_Twitter">Twitter</a></li>
-						<li><a href="#" id="a_LinkedIn">LinkedIn</a></li>
-					</ul>			
-			</li>			
-		</ul>		
-	</div>
-
+	<jsp:include page="WEB-INF/jsp/Header.jsp" />
 	<div id="content">
 		<!--<h1><b>About SparkMind </b>Inc.</h1> -->
 		<div id ="Home">
@@ -266,9 +210,7 @@
 		</div>
 	</div>
 	<div id='msgbox' title='' style='display:none'></div>
-	<div id="footer">
-		<i>All Rights Reserved--</i> SparkMind Inc. @ 2014		
-	</div>	
+	<jsp:include page="WEB-INF/jsp/Footer.jsp" />
 	<style type="text/css"> @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css") </style>
 </body>
 
