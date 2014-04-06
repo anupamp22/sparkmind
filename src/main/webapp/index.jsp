@@ -6,6 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="shortcut icon" href="resources/image/favicon.ico" type="image/x-icon" /> 
 	<title>SparkMind Inc.</title>
 	<link href= "resources/css/global.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

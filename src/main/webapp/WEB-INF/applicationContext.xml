@@ -30,6 +30,9 @@
 	<!-- Imports datasource configuration -->
 	<import resource="spring-database.xml"/>
 	
+		<!-- Imports mail configuration -->
+	<import resource="spring-mail.xml"/>
+	
 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
           p:location="/WEB-INF/spring.properties" />    
 
