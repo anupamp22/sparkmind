@@ -1,9 +1,9 @@
-package com.example.service;
+package com.sparkmind.service;
 
 
 import java.util.List;
 
-import com.example.model.Person;
+import com.sparkmind.model.Person;
 
 public interface PersonService {
     
