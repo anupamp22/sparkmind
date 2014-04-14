@@ -1,0 +1,304 @@
+*{ margin: 0; padding: 0; }
+body{
+	font: 15px Tahoma, Sans-Serif;
+}
+a{
+	text-decoration: none;
+}
+a img{
+ 	border: 0;
+}
+p{
+	margin: 0 0 1em;
+}
+#masthead{
+	margin-bottom: 3.75em;
+	padding-top: 1px;
+	background: #0099FF;/* blue ABD240 0099FF */
+	position: relative;
+	
+}
+#homelink{
+	display: block;
+	margin: 1em 2em 1em;
+	padding: 0em 0 0em 0em;
+	background: url(../image/curl.gif) 100% 100% no-repeat;
+}
+#today{
+	margin-top: -1.99em; /* this pulls the today's date in the masthead - trick of negative top margin */
+	padding: 0 2em 0 0;
+	font-weight: bold;
+	text-align: right;
+	line-height: 1;
+	float: right;
+
+}
+#content{
+	float: left;
+	padding: 0 20em 4em 3em;
+}
+#content h1{
+	margin:0 33% 1.25em -2em;
+	padding: 0.5em 2em;
+	background: #FFF;
+	color: #686397;
+	font-size: 1.5em;
+}
+#searchResults{
+	width: 600px;
+}
+#content h1 b{
+	color: #B0D742; 
+}
+#content h2{
+	margin: 0.5em 0;
+	padding-bottom: 0.25em;
+	border-bottom: 5px solid #B0D742;
+	font-size: 1.5em;
+}
+#content img illus{
+	float: left;
+	margin: 1em 1em 1em 0;
+}
+#sidebar{
+	float: left;
+	width: 17em;
+	margin: 0 0 4em -18em;
+}
+#sidebar form, #sidebar div h3{
+	background: #0099FF; /* 9B96CA  */
+}
+#sidebar form{
+	margin: 0;
+	padding: 0.8em;
+}
+#sidebar form .text{
+	width: 9em;
+}
+#sidebar div {
+	background: #343C2D;/* ccc 686397 343C2D*/
+	color: #FFF;
+	padding: 0 1em 1em;
+	margin-top: 0.75em;	
+}
+#sidebar div div {
+	background: 686397;
+	font-weight:bold;
+	background: #ccc;
+	color: black;
+}
+#sidebar div h3{
+	font-size: 1.25em;
+	margin: 0 -0.8em;
+	padding:0.4em 0.8em;
+	text-transform: lowercase;
+}
+#news-feed h4{
+	margin: 0 0 0 0.5em;
+	padding: 0.5em 0;
+	border-bottom: 2px solid #FFF;
+	font-weight: normal;
+}
+#news-feed p:first line{
+	font-style: italic;
+}
+#news-feed img{
+	display: block;
+	margin: 2em auto 0;
+}
+#post-archive table{
+	margin: 0 auto;
+	font-size: smaller;
+
+}
+#post-archive caption{
+	margin: 1em auto 0;
+	font-size: larger;
+	font-weight: bold;
+}
+#post-archive td{
+	padding: 0;
+	border: 1px solid #787A6B;
+	background: #585D4E;
+	color: #222;
+	text-align: center;
+}
+#post-archive table a{
+	display: block;
+	font-weight: bold;
+	color: #FFF;
+}
+#post-archive table a:hover{
+	background: #ABD240;
+}
+#footer{
+	clear: both;
+	padding: 1.5em 3em;
+	background: #0099FF;
+	font-weight: normal;
+}
+#footer p{
+	margin: 0;
+}
+#footer a{
+	color: #333;
+	text-decoration: underline;
+}
+#feed5{
+	background: blue;
+}
+
+/* 
+	Navlinks - Menu- LEVEL ONE
+*/
+
+ul									{ list-style: none; }
+a									{ text-decoration: none; }
+ul.navlinks 						{ margin: 0px; padding: 0em 0em; background: #686397; color: black; position: relative;}
+ul.navlinks li                      { padding: 0.5em 3.2em; font-weight: bold; float: left; background: #ccc; }
+ul.navlinks a:hover		            { color: #000; }
+ul.navlinks a:active                { color: #ffa500; }
+ul.navlinks li a                    { display: block; padding: 0px 0px; border-right: 0px solid #333; color: #222; }
+ul.navlinks li:last-child a         { border-right: none; } /* Doesn't work in IE */
+ul.navlinks li.hover,
+ul.navlinks li:hover                { background: #F3D673; color: black; position: relative; }
+ul.navlinks li.hover a              { color: black; }
+
+
+/* 
+	LEVEL TWO
+*/
+ul.navlinks ul 						{ width: 220px; visibility: hidden; position: absolute; top: 100%; left: 0; }
+ul.navlinks ul li 					{ font-weight: normal; background: #f6f6f6; color: #000; 
+									  border-bottom: 1px solid #ccc; float: none; }
+									  
+                                    /* IE 6 & 7 Needs Inline Block */
+ul.navlinks ul li a					{ border-right: none; width: 100%; display: inline-block; } 
+
+/* 
+	LEVEL THREE
+*/
+ul.navlinks ul ul 					{ left: 100%; top: 0; }
+ul.navlinks li:hover > ul 			{ visibility: visible; }
+
+
+/**********************Third section*********************/
+/*CSS3 */
+.button, .text1, .textarea, .blocks label.error, .blocks label.ok {
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+}
+.text1, .textarea{
+	padding: 5px, 10px;
+	height:27px;
+	border:1px solid #ddd;
+	color:#333;
+	background: url(../images/bginput.jpg) repeat-x bottom #fff;
+	position: relative;
+	z-index: 2;
+}
+.text1{
+	width:220px;
+}
+.textarea{
+	height:250px;
+	width:550px;
+}
+
+.blocks{
+	width: 800px;
+}
+.blocks p{
+	margin-bottom: 15px;
+	position: relative;
+}
+.blocks label{
+	float:left;
+	width: 150px;
+	line-height: 37px;
+	text-align: right;
+	margin-right: 15px;
+	font-weight: bold;
+	color:#666;
+}
+
+.blocks label.ok, label.error{
+	position:absolute;
+	z-index: 1;
+	top:-4px;
+	left:150px;
+	padding:5px 15px 5px 280px;
+
+	width:auto;
+	text-align: left;
+	margin:0;
+	background-repeat: no-repeat;
+	background-position: 257px 16px;
+}
+
+.blocks label.ok {
+	background-image:url(../images/icook.gif);
+	background-color:#deefca;
+	color:#577530;
+}
+  
+.blocks label.error {
+	background-image:url(../images/icofail.gif);
+	background-color:#f5d6d7;
+	color:#c81925;
+}
+/* login form related css  */
+.login-form {
+ 	padding: 5px;
+	margin: 0px 80px 0px 80px;
+	align: center;
+	
+}
+.login-form fieldset {
+	border: 5px solid gray;	
+}
+
+.login-form legend {
+	margin: 20px;
+	padding: 10px;
+	text-align: left;
+}
+
+.login-form hr {
+	height: 1px;
+	border: 0px;
+	border-top: 5px solid black;
+}
+
+.login-form input {
+	float: right;
+}
+
+ /* #rightMessageContent {
+            margin: auto;
+            text-align: center;
+            border: 1px solid #333;
+            -moz-border-radius: 15px;
+        }*/
+
+.message{
+	padding:30px;
+	color: red;
+	font-size:1.5em;
+}
+#userEditDiv{
+	float:left;
+	/*padding:10px,20px,20px,20px;*/	
+}
+#signupDiv{
+  float:left;
+}
+
+#SavingUserRecordIconDIV{
+	/*float:right;*/
+	position:absolute; 
+	left:600px; 
+	top:600px;
+}
+
