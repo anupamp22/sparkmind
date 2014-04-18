@@ -38,7 +38,7 @@
 		p:entityManagerFactory-ref="entityManagerFactory"/>
 
 		<!-- Declare a datasource that has pooling capabilities-->	
-	 	<beans profile="default_mysql">
+	 	<beans profile="default">
 			<bean id="jpaDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 				destroy-method="close"
 				p:driverClass="${app.jdbc.driverClassName}"
@@ -53,7 +53,7 @@
 		
 		 	<!-- Declare a JPA entityManagerFactory -->
 			<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" 
-				p:persistenceXmlLocation="/WEB-INF/persistence.xml"
+				p:persistenceXmlLocation="classpath:persistence.xml"
 				p:persistenceUnitName="hibernatePersistenceUnit"
 				p:dataSource-ref="jpaDataSource"
 				p:jpaVendorAdapter-ref="hibernateVendor"/>
@@ -63,7 +63,7 @@
 			            p:showSql="false"/>	
 		</beans>
 
-		 <beans profile="default">
+		 <beans profile="default_postgresql">
         <!-- <jdbc:embedded-database id="dataSource"/> -->
         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 			<property name="driverClassName" value="org.postgresql.Driver"/>

@@ -65,7 +65,7 @@
 						});			
 						
 					});
-						
+					
 					
 					$('#saveUserRecordForm').submit(function(event){
 						event.preventDefault();
@@ -73,7 +73,8 @@
 						
 						var $form = $(this);
 						var $inputs = $form.find("input");
-						var serializedData = $form.serialize();
+						//var serializedData = $form.serialize();
+						var serializedData = $form.serializeJSON();
 						
 						//$inputs.prop("disabled",true);
 						//alert(serializedData);
@@ -95,7 +96,7 @@
 								password:$('#password').val(),
 								userConfirmation:$('#userConfirmation').val(),
 								role:role,
-						};						
+						};
 						//alert(JSON.stringify(user));
 						$.postJSON(saveUrl, user, function(result){
 							//alert(result);
@@ -127,7 +128,7 @@
 						$.postJSON(registerUrl, serializedData, function(result){
 							//alert(JSON.stringify(result));
 							loadUsers();
-							 $("#SavingUserRecordIconDIV").fadeOut('slow');
+							$("#SavingUserRecordIconDIV").fadeOut('slow');
 						});						
 					});
 					
@@ -153,7 +154,7 @@
 									row+='</tr>';
 									$('#tableUsers').append(row);
 									//console.log(this.firstName + this.lastName + this.role.role);	
-								//});								
+								//});
 							});
 						});
 					}

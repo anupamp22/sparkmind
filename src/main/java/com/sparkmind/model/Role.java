@@ -13,8 +13,8 @@ import javax.persistence.Table;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 @Entity
-@Table (name="role", schema="public")
-//@Table(name="role")
+//@Table (name="role", schema="public")
+@Table(name="role")
 public class Role {
 	public Role(){		
 	}

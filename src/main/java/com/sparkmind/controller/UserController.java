@@ -117,7 +117,7 @@ public class UserController {
     
     @RequestMapping(value = "/registerByAjax", method = RequestMethod.POST)
     public @ResponseBody StatusResponse addUserByAjax(@RequestBody User user, /*@ModelAttribute("User") User user,*/ HttpServletRequest req) {
-    	System.out.println("Anupam is printing the ##$###############33333333333"+user.getFirstName());
+    	//System.out.println("Anupam is printing the ##$###############33333333333"+user.getFirstName());
     	String guid = UUID.randomUUID().toString();
     	user.setGuid(guid);
 			
@@ -150,7 +150,6 @@ public class UserController {
     	return "redirect:/signup?message="+message;
     }
     
-    
     @RequestMapping(value = "/register/userConfirmation", method = RequestMethod.GET)
     public String userConfirmation(Map<String, Object> map, @RequestParam(required=true) String guid) {
     	map.put("user", new User());
@@ -161,6 +160,21 @@ public class UserController {
     		accessService.addUser(u);    	
     	}
     	catch(NoResultException ex){    		
+    	}
+    	
+    	return "userConfirmation";
+    }
+
+    @RequestMapping(value = "/registerByAjax/userConfirmation", method = RequestMethod.GET)
+    public String userConfirmationByAjax(Map<String, Object> map, @RequestParam(required=true) String guid) {
+    	map.put("user", new User());
+    	map.put("guid", guid);
+    	try{
+    		User u = accessService.findByGuid(guid);
+    		u.setUserConfirmation("Confirmed");
+    		accessService.addUser(u);
+    	}
+    	catch(NoResultException ex){
     	}
     	
     	return "userConfirmation";

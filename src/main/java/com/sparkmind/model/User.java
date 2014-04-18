@@ -15,8 +15,8 @@ import javax.persistence.OneToOne;
 import org.codehaus.jackson.annotate.JsonManagedReference;
 
 @Entity
-@Table (name="user", schema="public")
-//@Table (name="user")
+//@Table (name="user", schema="public")
+@Table (name="user")
 public class User {
 	public User(){
 	}

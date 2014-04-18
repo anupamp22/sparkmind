@@ -5,6 +5,14 @@
              version="2.0">
 
     <persistence-unit name="dataSource" transaction-type="RESOURCE_LOCAL">
+    	<class>com.sparkmind.model.Product</class>
+    	<class>com.sparkmind.model.Category</class>
+    	<class>com.sparkmind.model.Price</class>
+    	<class>com.sparkmind.model.Creditcard</class>
+    	<class>com.sparkmind.model.Order</class>
+    	<class>com.sparkmind.model.OrderHasProduct</class>
+    	<class>com.sparkmind.model.OrderHasProductPK</class>
+    	<class>com.sparkmind.model.Orderstatus</class>
     </persistence-unit>
 
 </persistence>
