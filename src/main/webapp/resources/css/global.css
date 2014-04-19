@@ -194,7 +194,7 @@ ul.navlinks li:hover > ul 			{ visibility: visible; }
 	height:27px;
 	border:1px solid #ddd;
 	color:#333;
-	background: url(../images/bginput.jpg) repeat-x bottom #fff;
+	/*background: url(../images/bginput.jpg) repeat-x bottom #fff;*/
 	position: relative;
 	z-index: 2;
 }

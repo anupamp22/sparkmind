@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	<jsp:include page="WEB-INF/jsp/Header.jsp" />
+	<jsp:include page="Header.jsp" />
 	<div id="content">
 		<!--<h1><b>About SparkMind </b>Inc.</h1> -->
 		<div id ="Home">
@@ -210,7 +210,7 @@
 		</div>
 	</div>
 	<div id='msgbox' title='' style='display:none'></div>
-	<jsp:include page="WEB-INF/jsp/Footer.jsp" />
+	<jsp:include page="Footer.jsp" />
 	<style type="text/css"> @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css") </style>
 </body>
 
