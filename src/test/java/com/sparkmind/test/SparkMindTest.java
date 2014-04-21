@@ -13,28 +13,30 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sparkmind.model.Category;
 import com.sparkmind.model.Product;
+import com.sparkmind.service.ProductConfigService;
 
 
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class SparkMindTest {
-	
-	@PersistenceContext
-	private EntityManager em;
+
+	@Autowired
+	private ProductConfigService productConfigService;
 	
 	protected static Logger logger = Logger.getLogger(SparkMindTest.class);
 	
 	@Test
 	@Transactional
 	public void executeTest(){
-		List<Category> categoryList = getAllCategories();
-		List<Product> productList = getAllProducts();
+		List<Category> categoryList = productConfigService.getAllCategories();
+		List<Product> productList = productConfigService.getAllProducts();
 		System.out.println(categoryList.size()+"::"+productList.size());
 		
 		
@@ -43,15 +45,17 @@ public class SparkMindTest {
 		Category newCategory = new Category();
 		newCategory.setName("Test");
 		newCategory.setTags("Test");
-		em.persist(newCategory);
-
+		//em.persist(newCategory);
+		productConfigService.saveCategory(newCategory);
+		
 		//Adding a new product to the category
 		Product newProduct = new Product();
 		newProduct.setCategory(newCategory);
 		newProduct.setName("test");
 		newProduct.setPrice(699);
 		newProduct.setCategoryId(newCategory.getId());
-		em.persist(newProduct);
+		//em.persist(newProduct);
+		productConfigService.saveProduct(newProduct);
 		
 		//Attaching the product to the category
 		List<Product> newProdList = new ArrayList<Product>();
@@ -59,12 +63,12 @@ public class SparkMindTest {
 		newCategory.setProductList(newProdList);
 		
 		//Retrieving all the entities after added
-		categoryList = getAllCategories();
-		productList = getAllProducts();
+		categoryList = productConfigService.getAllCategories();
+		productList = productConfigService.getAllProducts();
 		System.out.println(categoryList.size()+"::"+productList.size());
 		
 		//Category category = em.find(Category.class, 2);
-		Category category = getCategoryByName("Test");
+		Category category = productConfigService.getCategoryByName("Test");
 		System.out.println(category);
 		
 		List<Product> prods = category.getProductList();
@@ -75,33 +79,11 @@ public class SparkMindTest {
 		}
 		
 		//Deleting an entitiy after finding it
-		Category categoryTobeDeleted = em.find(Category.class, newCategory.getId());
-		if (categoryTobeDeleted!=null){
-			System.out.println("Category deleted");
-			em.remove(categoryTobeDeleted);
-		}
+		productConfigService.removeCategory(newCategory.getId());
+		
 		//System.out.println("Anupam is testing with junit in sparkmindtest class::"+product.getCategory().getName());
 		//assertNull(product.getCategory());
 	}
 	
-	public List<Category> getAllCategories(){
-		Query q = em.createQuery("FROM Category");
-		return q.getResultList();
-	}
 	
-	public List<Product> getAllProducts(){
-		Query q = em.createQuery("FROM Product");
-		return q.getResultList();
-	}
-	
-	public Category getCategoryByName(String name){
-		Category p = (Category)em.createQuery("FROM Category p where p.name=:name").setParameter("name", name).getSingleResult();
-		System.out.println(p);
-		return p;
-	}
-	
-	public Product getProductByName(String name){
-		Product p = (Product)em.createQuery("FROM PRODUCT p where p.name=:name").setParameter("name", name).getSingleResult();
-		return p;
-	}
 }//end of test class

@@ -256,7 +256,7 @@ ul.navlinks li:hover > ul 			{ visibility: visible; }
 	
 }
 .login-form fieldset {
-	border: 5px solid gray;	
+	/*border: 5px solid gray;*/
 }
 
 .login-form legend {

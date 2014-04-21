@@ -8,28 +8,14 @@
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
 		<title>SparkMind Admin Page</title>
-		
-		<link rel="shortcut icon" href="resources/image/favicon.ico" type="image/x-icon" /> 
-		<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-		<link href="//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-		<link href= "resources/css/global.css" rel="stylesheet" type="text/css">
-		
-		
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		
-		<script type="text/javascript" src="resources/js/jquery.validate.min.js"></script>	
-		<script type="text/javascript" src="resources/js/script.js"></script>
-		<script type='text/javascript' src='<c:url value="/resources/js/util.js"/>'></script>
-		<script type="text/javascript" src="resources/js/Form2JSON.js"></script>
 		
 		<script type="text/javascript">
 			$(function(){
 					loadUsers();
 					$('#userEditDiv').hide();
-					$('#SavingUserRecordIconDIV').hide();
+					$('#RoatatingWheel').hide();
 					
 					//$('.editUserBtn').click(function(event){
 					$(document).on("click",'.editUserBtn', function(event){
@@ -51,7 +37,7 @@
 					
 					$(document).on("click",'.deleteUsrBtn', function(event){
 						event.preventDefault();
-						$('#SavingUserRecordIconDIV').fadeIn(); //show when submitting
+						$('#RoatatingWheel').fadeIn(); //show when submitting
 						var userId = $(this).parent().find('#userId').val();
 						var deleteUrl = '${pageContext.request.contextPath}/deleteUserByAjax/'+userId;
 						//alert(deleteUrl);
@@ -61,7 +47,7 @@
 								alert("User deleted");								
 							}*/
 							loadUsers();
-							 $("#SavingUserRecordIconDIV").fadeOut('slow');
+							 $("#RoatatingWheel").fadeOut('slow');
 						});			
 						
 					});
@@ -69,7 +55,7 @@
 					
 					$('#saveUserRecordForm').submit(function(event){
 						event.preventDefault();
-						$('#SavingUserRecordIconDIV').fadeIn(); //show when submitting
+						$('#RoatatingWheel').fadeIn(); //show when submitting
 						
 						var $form = $(this);
 						var $inputs = $form.find("input");
@@ -104,31 +90,31 @@
 								dialog("Success", "Record Saved");
 							}*/
 							loadUsers();
-							 $("#SavingUserRecordIconDIV").fadeOut('slow');
+							 $("#RoatatingWheel").fadeOut('slow');
 						});
 					});
 					
 					
 					$('#signupForm').submit(function(event){
 						event.preventDefault();
-						$('#SavingUserRecordIconDIV').fadeIn(); //show when submitting
+						$('#RoatatingWheel').fadeIn(); //show when submitting
 						var $form = $(this);
 						var serializedData = $form.serializeJSON();
 						//alert(JSON.stringify($form.serializeJSON()));
 						
-						var user={
+						/*var user={
 								firstName:$('#newfirstName').val(),
 								lastName:$('#newlastName').val(),
 								email:$('#newemail').val(),
 								password:$('#newpassword').val(),
-						};
+						};*/
 						
 						//alert(JSON.stringify(user));
 						var registerUrl='${pageContext.request.contextPath}/registerByAjax';
 						$.postJSON(registerUrl, serializedData, function(result){
 							//alert(JSON.stringify(result));
 							loadUsers();
-							$("#SavingUserRecordIconDIV").fadeOut('slow');
+							$("#RoatatingWheel").fadeOut('slow');
 						});						
 					});
 					
@@ -175,8 +161,9 @@
 	</head>
 	<body>
 		<jsp:include page="Header.jsp"></jsp:include>
-		<div id="container">
-			<h3>All user data</h3>
+		<div id="content">
+			<p>&nbsp;&nbsp;&nbsp;</p>
+			<h2>All user data</h2>
 			
 			<table class="table table-bordered table-striped" id="tableUsers">
 				<thead>
@@ -208,48 +195,53 @@
 						</tr>		
 				</c:forEach>-->
 			</table>
-		</div>
-		<div id="SavingUserRecordIconDIV"><img src="${pageContext.request.contextPath}/resources/image/ajax-loader.gif" alt="Saving User Record Image"></div>
-		<div id="userEditDiv">
-			     <form:form commandName="user" id="saveUserRecordForm" class="blocks">
+			
+			<div id="RoatatingWheel" align="center"><img src="${pageContext.request.contextPath}/resources/image/ajax-loader.gif" alt="Saving User Record Image"></div>
+		
+			<div id="userEditDiv">
+				     <form:form commandName="user" id="saveUserRecordForm" class="blocks">
+					     <fieldset>
+						     	<legend>Edit user record</legend>
+						     	<p><form:label path="id">Id</form:label>
+				                <form:input path="id" class="text1" /> </p>
+				                <p><form:label path="firstName">First Name</form:label>
+				                <form:input path="firstName" class="text1" /> </p>
+				                <p><form:label path="lastName">Last Name</form:label>
+				                <form:input path="lastName" class="text1" /></p>
+				                <p><form:label path="email">email</form:label>
+				                <form:input path="email" class="text1" /></p>
+				                 <p><form:label path="guid">guid</form:label>
+				                <form:input path="guid" class="text1" /></p>
+				                <p><form:label path="password">Password</form:label>
+				                <form:input path="password" class="text1" type="password"/></p>
+				                <p><form:label path="userConfirmation">User Confirmation </form:label>
+				                <form:input path="userConfirmation" class="text1" /></p>
+				                <p><form:label path="role">Role</form:label>
+				                <form:input path="role" class="text1" /></p>
+				                <p align="center"><input type="submit" value="save user record" class="btn" id="saveUserRecordBtn"/></p>
+			               </fieldset>
+	            </form:form> 
+			</div>
+			
+			<div id="signupDiv">
+			     <form id="signupForm" class="blocks">
 				     <fieldset>
-					     	<legend>Edit user record</legend>
-					     	<p><form:label path="id">Id</form:label>
-			                <form:input path="id" class="text1" /> </p>
-			                <p><form:label path="firstName">First Name</form:label>
-			                <form:input path="firstName" class="text1" /> </p>
-			                <p><form:label path="lastName">Last Name</form:label>
-			                <form:input path="lastName" class="text1" /></p>
-			                <p><form:label path="email">email</form:label>
-			                <form:input path="email" class="text1" /></p>
-			                 <p><form:label path="guid">guid</form:label>
-			                <form:input path="guid" class="text1" /></p>
-			                <p><form:label path="password">Password</form:label>
-			                <form:input path="password" class="text1" type="password"/></p>
-			                <p><form:label path="userConfirmation">User Confirmation </form:label>
-			                <form:input path="userConfirmation" class="text1" /></p>
-			                <p><form:label path="role">Role</form:label>
-			                <form:input path="role" class="text1" /></p>
-			                <p align="center"><input type="submit" value="save user record" class="btn" id="saveUserRecordBtn"/></p>
+					     	<legend>Create a new user</legend>
+			                <p><label for="newfirstName">First Name</label>
+			                <input type="text" name="firstName" id="newfirstName" class="text1" /> </p>
+			                <p><label for="newlastName">Last Name</label>
+			                <input type="text" name="lastName" id="newlastName" class="text1" /></p>
+			                <p><label for="newemail">email</label>
+			                <input type="text" id="newemail" name="email" class="text1" /></p>
+			                <p><label for="newpassword">Password</label>
+			                <input id="newpassword" class="text1" name="password" type="password"/></p>
+			                <p align="center"><input type="submit" value="Register" class="btn"/></p>
 		               </fieldset>
-            </form:form> 
+	            </form>                     	
+			</div>			
+			
 		</div>
-		<div id="signupDiv">
-		     <form id="signupForm" class="blocks">
-			     <fieldset>
-				     	<legend>Create a new user</legend>
-		                <p><label for="newfirstName">First Name</label>
-		                <input type="text" name="firstName" id="newfirstName" class="text1" /> </p>
-		                <p><label for="newlastName">Last Name</label>
-		                <input type="text" name="lastName" id="newlastName" class="text1" /></p>
-		                <p><label for="newemail">email</label>
-		                <input type="text" id="newemail" name="email" class="text1" /></p>
-		                <p><label for="newpassword">Password</label>
-		                <input id="newpassword" class="text1" name="password" type="password"/></p>
-		                <p align="center"><input type="submit" value="Register" class="btn"/></p>
-	               </fieldset>
-            </form>                     	
-	</div>			
+			
 		<jsp:include page="Footer.jsp"></jsp:include>
 	</body>
 </html>

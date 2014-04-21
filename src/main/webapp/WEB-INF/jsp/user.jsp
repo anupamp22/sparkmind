@@ -6,20 +6,15 @@
 <c:url value="logout" var="logoutUrl"/>
 <html>
 	<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-			<link rel="shortcut icon" href="resources/image/favicon.ico" type="image/x-icon" />
-			<title>SparkMind Login</title>		
-			<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-			<link href= "resources/css/global.css" rel="stylesheet" type="text/css">
-			<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-			<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-			<script type="text/javascript" src="resources/js/jquery.validate.min.js"></script>
-			<script type="text/javascript" src="resources/js/script.js"></script>
-			<script type='text/javascript' src='<c:url value="/resources/js/util.js"/>'></script>
+			<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
+			<title>SparkMind Login</title>
 	</head>
+
 	<body>
 			<jsp:include page="Header.jsp" />
-			<div id="content"> 
+			<div id="content">
+				<p>&nbsp;&nbsp;&nbsp;</p>
+				<h2>Login success </h2>
 				<p> Welcome <%=SecurityContextHolder.getContext().getAuthentication().getName()%> !</p>
 				<p><a href="${logoutUrl}">Logout</a></p>
 			</div>

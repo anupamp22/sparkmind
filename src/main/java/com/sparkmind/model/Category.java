@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 
 /**
  * The persistent class for the category database table.
@@ -18,6 +20,7 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy="category", targetEntity=Product.class, fetch=FetchType.EAGER)
 	private List<Product> productList;
 	

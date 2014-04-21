@@ -100,6 +100,8 @@
 	<!-- <h1 id='banner'>Compose Email</h1> -->
 	
 	<div id=content>
+		<p>&nbsp;&nbsp;&nbsp;</p>
+		<h2>Compose Email</h2>
 		<form:form id="emailForm" class="blocks" commandName="message">
   			<fieldset>
 				<legend>Compose Email</legend>

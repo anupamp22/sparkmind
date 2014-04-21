@@ -6,24 +6,18 @@
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="shortcut icon" href="resources/image/favicon.ico" type="image/x-icon" /> 
+		<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
 		<title>SparkMind Login</title>
-		<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-		<link href= "resources/css/global.css" rel="stylesheet" type="text/css">
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<script type="text/javascript" src="resources/js/jquery.validate.min.js"></script>	
-		<script type="text/javascript" src="resources/js/script.js"></script>
-		<script type='text/javascript' src='<c:url value="/resources/js/util.js"/>'></script>
 	</head>
 
 	<body>
 	<jsp:include page="Header.jsp" />
 	<div id="content">
+		<p>&nbsp;&nbsp;&nbsp;</p>
+		<h2>Sign In</h2>
 		<form class="login-form" action="j_spring_security_check" method="post">
 			<fieldset>
-				<legend><b>Login Here</b></legend>
+				<!-- <legend><b>Login Here</b></legend> -->
 				<p>
 					<label for="j_username"><b>Email:</b></label>
 					<input id="j_username" name="j_username" size="20" maxlength="50" type="text" class="text1"/>

@@ -5,6 +5,8 @@
 <%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
 <c:url value="admin" var="adminUrl"/>
 <c:url value="logout" var="logoutUrl"/>
+<c:url value="configurator" var="configuratorUrl"/>
+
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -59,6 +61,7 @@
 											<sec:authorize access="hasRole('ROLE_ADMIN')">
 													<li><a href="${adminUrl}">Admin</a></li>
 											</sec:authorize>
+											<li><a href="${configuratorUrl}">Product Configurator</a></li>
 										</c:when>
 										<c:otherwise>
 										</c:otherwise>

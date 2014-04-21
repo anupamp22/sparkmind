@@ -3,6 +3,8 @@ package com.sparkmind.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 
 /**
  * The persistent class for the product database table.
@@ -19,6 +21,7 @@ public class Product implements Serializable {
 	@Column(name="category_id")
 	private int categoryId;
 
+	@JsonBackReference
 	@ManyToOne(optional=false)
 	@JoinColumn(name="category_id",referencedColumnName="id", insertable=false, updatable=false)
 	private Category category;
