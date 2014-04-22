@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sparkmind.model.Category;
 import com.sparkmind.model.Product;
 import com.sparkmind.model.ShoppingCart;
+import com.sparkmind.model.ShoppingCartItem;
+import com.sparkmind.model.ShoppingCartItemList;
 import com.sparkmind.service.ProductConfigService;
 
 @Controller
@@ -30,12 +32,23 @@ public class ProductConfigController {
 	@Autowired
 	private ProductConfigService productConfigService;
 	
-	static Map<Integer, Category> categoryMap = new HashMap<Integer, Category>();
-	static Map<Integer, Product> productMap = new HashMap<Integer, Product>();
+	//static Map<Integer, Category> categoryMap = new HashMap<Integer, Category>();
+	//static Map<Integer, Product> productMap = new HashMap<Integer, Product>();
+	//static Map<Integer, ShoppingCartItem> shoppingCartItemMap = new HashMap<Integer, ShoppingCartItem>();
 	
-	static List<Category> categoryList = new ArrayList<Category>();
+	private Map<Integer, Category> categoryMap;
+	private Map<Integer, Product> productMap;
+	private Map<Integer, ShoppingCartItem> shoppingCartItemMap;
+	
+	private List<Category> categoryList;
 	
 	public void initialize(){
+		categoryMap = new HashMap<Integer, Category>();
+		productMap = new HashMap<Integer, Product>();
+		shoppingCartItemMap = new HashMap<Integer, ShoppingCartItem>();
+		
+		categoryList = new ArrayList<Category>();
+		
 		categoryList = productConfigService.getAllCategories();
 		for(Category c:categoryList){
 			categoryMap.put(Integer.valueOf(c.getId()), c);
@@ -51,8 +64,8 @@ public class ProductConfigController {
 		model.addAttribute("message", message);
 		model.addAttribute("categoryList",categoryList);
 		
-		ShoppingCart shoppingCart = new ShoppingCart();
-		model.addAttribute("shoppingCart",shoppingCart);
+		ShoppingCartItemList shoppingCartItemList = new ShoppingCartItemList();
+		model.addAttribute("shoppingCartItemList",shoppingCartItemList);
 		return "configurator";
 	}
 	
@@ -60,20 +73,78 @@ public class ProductConfigController {
 	public @ResponseBody List<Product> configurator(@RequestParam(required=true) int categoryId){
 		/*for(Product p:categoryMap.get(categoryId).getProductList()){
 			System.out.println("Anupam is printing:::"+p);
-		}*/
-		return (List<Product>)categoryMap.get(categoryId).getProductList();
+		}
 		//return productConfigService.getCategoryById(categoryId).getProductList();
+		*/
+		return (List<Product>)categoryMap.get(categoryId).getProductList();
+		
 	}
 	
 	@RequestMapping(value = "/addToCart", method = RequestMethod.POST)
-	public @ResponseBody List<Product> addToCart(@RequestBody String[] productIDs) {
-		List<Product> prodList = new ArrayList<Product>();
+	public @ResponseBody Map<Integer, ShoppingCartItem> addToCart(@RequestBody String[] productIDs) {
+		/*List<Product> prodList = new ArrayList<Product>();
 		for(String id:productIDs){
 			//System.out.println("#@#@%$#%@#@#3333333333333333333333"+Integer.valueOf(id));
 			prodList.add(productMap.get(Integer.valueOf(id)));
-		}
+		}*/
 		//OrderForm orderForm = createOrderForm(userSelections.getSelection());
-		return prodList;
+		//List<ShoppingCartItem> shoppingCartItemList = new ArrayList<ShoppingCartItem>();
+		for(String id:productIDs){
+			if (productMap.containsKey(Integer.valueOf(id))){
+				Product p = productMap.get(Integer.valueOf(id));
+				ShoppingCartItem s=null;
+				if (!shoppingCartItemMap.containsKey(Integer.valueOf(id))){
+					s = new ShoppingCartItem(p.getId(),p.getName(), 1, p.getPrice());					
+				}
+				else{
+					s = shoppingCartItemMap.get(Integer.valueOf(id));
+					s.setQty(s.getQty()+1);
+					s.setTotalprice(s.getQty()*s.getPrice());
+				}
+				shoppingCartItemMap.put(Integer.valueOf(id), s);				
+			}
+		}		
+		//return prodList;
+		return shoppingCartItemMap;
+	}
+	
+	@RequestMapping(value = "/updateCart", method = RequestMethod.POST)
+	public @ResponseBody Map<Integer, ShoppingCartItem> updateCart(@RequestBody ShoppingCartItemList shoppingCartItemList) {
+		for(ShoppingCartItem s:shoppingCartItemList.getShoppingCartItems()){
+			
+			if (shoppingCartItemMap.containsKey(s.getId())){
+				ShoppingCartItem shoppingCartItem = shoppingCartItemMap.get(s.getId());
+				shoppingCartItem.setQty(s.getQty());
+				shoppingCartItem.setTotalprice(shoppingCartItem.getPrice()*s.getQty());
+				if (s.getQty()==0){
+					shoppingCartItemMap.remove(s.getId());
+				}
+				
+				//shoppingCartItemMap.put(s.getId(), shoppingCartItem);
+			}
+		}
+		/*for(Integer id:shoppingCartItemMap.keySet()){
+			ShoppingCartItem shoppingCartItem = shoppingCartItemMap.get(id);
+			if (shoppingCartItem.getTotalprice()==0){
+				shoppingCartItemMap.remove(id);
+			}
+		}*/
+		return shoppingCartItemMap;
+	}
+	
+	@RequestMapping(value = "/checkoutCart", method = RequestMethod.POST)
+	public @ResponseBody Map<Integer, ShoppingCartItem> checkoutCart(@RequestBody ShoppingCartItemList shoppingCartItemList) {
+		for(ShoppingCartItem s:shoppingCartItemList.getShoppingCartItems()){
+			if (shoppingCartItemMap.containsKey(s.getId())){
+				ShoppingCartItem shoppingCartItem = shoppingCartItemMap.get(s.getId());
+				shoppingCartItem.setQty(s.getQty());
+				shoppingCartItem.setTotalprice(shoppingCartItem.getPrice()*s.getQty());
+				if (s.getQty()==0){
+					shoppingCartItemMap.remove(s.getId());
+				}
+			}
+		}
+		return shoppingCartItemMap;
 	}
 	
 }
