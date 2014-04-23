@@ -45,14 +45,14 @@ public class ProductConfigController {
 	private Map<Integer, Category> categoryMap;
 	private Map<Integer, Product> productMap;
 	
-	private Map<Integer, ShoppingCartItem> shoppingCartItemMap;
+	private Map<Integer, ShoppingCartItem> shoppingCartItemMap=new HashMap<Integer, ShoppingCartItem>();
 	
 	private List<Category> categoryList;
 	
 	public void initialize(){
 		categoryMap = new HashMap<Integer, Category>();
 		productMap = new HashMap<Integer, Product>();
-		shoppingCartItemMap = new HashMap<Integer, ShoppingCartItem>();
+		//shoppingCartItemMap = new HashMap<Integer, ShoppingCartItem>();
 		
 		categoryList = new ArrayList<Category>();
 		

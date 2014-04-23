@@ -173,10 +173,7 @@
 		<jsp:include page="Header.jsp"></jsp:include>
 		<%
 			session.getAttribute("shoppingCartItemMap");
-		
-		
-		%>
-		
+		%>		
 		<div id="content">
 			<p>&nbsp;&nbsp;&nbsp;</p>
 			<span class="message">Welcome ${user.firstName} ${user.lastName}</span>
@@ -227,10 +224,15 @@
 								<tr>
 							</thead>
 							<tbody>
-								 <tr>
-							            <td colspan='2'>Total</td>
-							            <td id='total'></td>
-	        					</tr>
+									<c:forEach items="${shoppingCartItemMap.values()}" var="item">
+									 <tr>
+										<td>${item.name}</td>
+										<td>${item.price} </td>
+										<td>${item.qty}</td>
+										<td>${item.totalprice}</td>
+										<td> </td>
+									</tr>
+									</c:forEach>
 							</tbody>
 					     </table>
 					<input class="command" type="submit" name="action" value="Proceed to checkout" accesskey="A" id="checkoutCartBtn" />
@@ -255,11 +257,6 @@
 					 
 					<input class="command" type="submit" name="action" value="confirm order" accesskey="A" id="confirmOrderBtn" />
 				<!--</form:form> -->
-				
-			<c:forEach items="${shoppingCartItemMap.values()}" var="product">
-				<input name="${product.name}" type="checkbox" VALUE="${product.id}">${product.name} ${product.qty} ${product.price}<br>
-			</c:forEach>
-				
 			</div>
 			
 				
