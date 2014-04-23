@@ -5,8 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +27,7 @@ import com.sparkmind.model.Product;
 import com.sparkmind.model.ShoppingCart;
 import com.sparkmind.model.ShoppingCartItem;
 import com.sparkmind.model.ShoppingCartItemList;
+import com.sparkmind.model.User;
 import com.sparkmind.service.ProductConfigService;
 
 @Controller
@@ -38,6 +44,7 @@ public class ProductConfigController {
 	
 	private Map<Integer, Category> categoryMap;
 	private Map<Integer, Product> productMap;
+	
 	private Map<Integer, ShoppingCartItem> shoppingCartItemMap;
 	
 	private List<Category> categoryList;
@@ -109,7 +116,7 @@ public class ProductConfigController {
 	}
 	
 	@RequestMapping(value = "/updateCart", method = RequestMethod.POST)
-	public @ResponseBody Map<Integer, ShoppingCartItem> updateCart(@RequestBody ShoppingCartItemList shoppingCartItemList) {
+	public @ResponseBody Map<Integer, ShoppingCartItem> updateCart(@RequestBody ShoppingCartItemList shoppingCartItemList, HttpServletRequest request) {
 		for(ShoppingCartItem s:shoppingCartItemList.getShoppingCartItems()){
 			
 			if (shoppingCartItemMap.containsKey(s.getId())){
@@ -129,11 +136,13 @@ public class ProductConfigController {
 				shoppingCartItemMap.remove(id);
 			}
 		}*/
+		HttpSession session = request.getSession(true);
+		session.setAttribute("shoppingCartItemMap", shoppingCartItemMap);
 		return shoppingCartItemMap;
 	}
 	
 	@RequestMapping(value = "/checkoutCart", method = RequestMethod.POST)
-	public @ResponseBody Map<Integer, ShoppingCartItem> checkoutCart(@RequestBody ShoppingCartItemList shoppingCartItemList) {
+	public @ResponseBody Map<Integer, ShoppingCartItem> checkoutCart(@RequestBody ShoppingCartItemList shoppingCartItemList, HttpServletRequest request) {
 		for(ShoppingCartItem s:shoppingCartItemList.getShoppingCartItems()){
 			if (shoppingCartItemMap.containsKey(s.getId())){
 				ShoppingCartItem shoppingCartItem = shoppingCartItemMap.get(s.getId());
@@ -144,6 +153,9 @@ public class ProductConfigController {
 				}
 			}
 		}
+		HttpSession session = request.getSession(true);
+		session.setAttribute("shoppingCartItemMap", shoppingCartItemMap);
+		
 		return shoppingCartItemMap;
 	}
 	

@@ -1,5 +1,7 @@
 package com.sparkmind.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +17,7 @@ import org.codehaus.jackson.annotate.JsonBackReference;
 @Entity
 //@Table (name="role", schema="public")
 @Table(name="role")
-public class Role {
+public class Role{
 	public Role(){		
 	}
 	public Role(Integer role){

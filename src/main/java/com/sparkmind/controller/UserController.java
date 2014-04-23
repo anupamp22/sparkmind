@@ -7,11 +7,14 @@ import java.util.UUID;
 
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,6 +34,7 @@ import com.sparkmind.service.UserService;
 
 @Controller
 @RequestMapping
+@Scope("session")
 public class UserController {
 	
 	protected static Logger logger = Logger.getLogger("service");
@@ -48,9 +52,8 @@ public class UserController {
 	private String herokuAppURL;
 	
 	@RequestMapping("/login")
-	public String login(Model model, @RequestParam(required=false) String message){
-		
-		model.addAttribute("message", message);
+	public String login(Model model, @RequestParam(required=false) String message){		
+		model.addAttribute("message", message);		
 		return "login";
 	}
 	
@@ -73,7 +76,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user")
-	public String getUserPage(){
+	public String getUserPage(HttpServletRequest request){
+		//Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();	
+		
+		HttpSession session = request.getSession(true);
+		User user = accessService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+		session.setAttribute("user", user);
+		
 		return "user";
 	}
 	
@@ -204,8 +213,7 @@ public class UserController {
   //ajax json put
     @RequestMapping(value="/saveUser/{userId}", method = RequestMethod.POST)
     public @ResponseBody User saveUser(@RequestBody User user){
-    	logger.debug("Anupam is printing in the saveUser method::"+user.getFirstName()+user.getId());
-    	
+    	//logger.debug("Anupam is printing in the saveUser method::"+user.getFirstName()+user.getId());    	
     	//return new StatusResponse(true, "User record updated");
     	return accessService.updateUser(user);
     }

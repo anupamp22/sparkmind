@@ -38,7 +38,7 @@
 				$('#addToCartBtn').click(function(event){
 					event.preventDefault();
 					$('#RoatatingWheel').fadeIn();
-					var selectedProducts=[];
+                   var selectedProducts=[];
 					$('input:checked').each(function(){
 						selectedProducts.push($(this).val());
 					});
@@ -171,8 +171,15 @@
 	
 	<body>
 		<jsp:include page="Header.jsp"></jsp:include>
+		<%
+			session.getAttribute("shoppingCartItemMap");
+		
+		
+		%>
+		
 		<div id="content">
 			<p>&nbsp;&nbsp;&nbsp;</p>
+			<span class="message">Welcome ${user.firstName} ${user.lastName}</span>
 			<h2> Product Configurator </h2>
 			
 			<div id="categoryDiv">
@@ -245,20 +252,28 @@
 							<tbody>
 							</tbody>
 					     </table>
+					 
 					<input class="command" type="submit" name="action" value="confirm order" accesskey="A" id="confirmOrderBtn" />
 				<!--</form:form> -->
+				
+			<c:forEach items="${shoppingCartItemMap.values()}" var="product">
+				<input name="${product.name}" type="checkbox" VALUE="${product.id}">${product.name} ${product.qty} ${product.price}<br>
+			</c:forEach>
+				
 			</div>
 			
 				
 			<!--
 			<c:forEach items="${category.productList}" var="product">
 				<input name="${product.name}" type="checkbox" VALUE="${product.id}">${product.name} ${product.productcode} ${product.price}<br>
-			</c:forEach>			
+			</c:forEach>
 
 			<label>Available product for selected category</label>
 				<label for="${category.name}">${category.name}
 					<input type="radio" name="${category.name}" value="${category.name}"/>
 				</label>-->
+				
+	
 		</div>
 			
 		<jsp:include page="Footer.jsp"></jsp:include>			

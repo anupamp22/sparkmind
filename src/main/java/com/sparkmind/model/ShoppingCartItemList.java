@@ -2,6 +2,8 @@ package com.sparkmind.model;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
+
 public class ShoppingCartItemList {
 	
 	private String userId;

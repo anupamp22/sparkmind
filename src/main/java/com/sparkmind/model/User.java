@@ -1,5 +1,6 @@
 package com.sparkmind.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 import javax.persistence.CascadeType;
