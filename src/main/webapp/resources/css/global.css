@@ -295,14 +295,14 @@ ul.navlinks li:hover > ul 			{ visibility: visible; }
   float:left;
 }
 
-#SavingUserRecordIconDIV{
+#RoatatingWheel{
 	/*float:right;*/
 	position:absolute; 
-	left:600px; 
-	top:600px;
+	left:700px; 
+	top:360px;
 }
-/*#checkoutDiv{
+#checkoutDiv{
 	position:absolute; 
-	left:800px; 
-	top:220px;	
-}*/
+	left:900px; 
+	top:260px;
+}
