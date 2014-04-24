@@ -4,6 +4,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.sparkmind.model.Product</class>
 		<class>com.sparkmind.model.Category</class>
+		<class>com.sparkmind.model.Order</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
