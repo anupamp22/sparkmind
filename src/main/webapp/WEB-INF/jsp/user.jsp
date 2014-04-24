@@ -16,7 +16,7 @@
 				<p>&nbsp;&nbsp;&nbsp;</p>
 				<h2>Login success </h2>
 				<span class="message">Welcome ${user.firstName} ${user.lastName}</span>
-				<p> Welcome <%=SecurityContextHolder.getContext().getAuthentication().getName()%> !</p>
+				<!-- <p> Welcome <%=SecurityContextHolder.getContext().getAuthentication().getName()%> !</p> -->
 				<p><a href="${logoutUrl}">Logout</a></p>
 			</div>
 			<jsp:include page="Footer.jsp" />

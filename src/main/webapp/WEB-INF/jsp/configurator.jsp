@@ -154,13 +154,29 @@
 									getTotal();
 						});
 				});//end of checkoutcart function
+				
+				$('#confirmOrderBtn').click(function(event){
+					event.preventDefault();
+					$('#RoatatingWheel').fadeIn();
+					//alert("anupam is printing before postjson success");
+					$.postJSON('${pageContext.request.contextPath}/confirmOrder',{}, function(data){
+						//alert(JSON.stringify(data));
+						if (data.success==true){
+							$.each(data.message, function(i,v){
+								$('#orderConfirmationSpan').text(v);
+							});
+							$("#RoatatingWheel").fadeOut('slow');
+						}//end of if
+					});
+					
+				});//end of confirm order function
+				
 			}); //end of DOM load
 			
 			function getTotal(){
 			    var total = 0;
 			    $('.price').each(function(){
 			        total += parseFloat(this.innerHTML);
-			       
 			    });
 			    //$('#total').text(total);
 			    $("#total").text('$' + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
@@ -256,6 +272,8 @@
 					     </table>
 					 
 					<input class="command" type="submit" name="action" value="confirm order" accesskey="A" id="confirmOrderBtn" />
+					<p>&nbsp;&nbsp;&nbsp;</p>
+					<span class="message" id="orderConfirmationSpan"></span>
 				<!--</form:form> -->
 			</div>
 			
@@ -268,9 +286,7 @@
 			<label>Available product for selected category</label>
 				<label for="${category.name}">${category.name}
 					<input type="radio" name="${category.name}" value="${category.name}"/>
-				</label>-->
-				
-	
+				</label>-->	
 		</div>
 			
 		<jsp:include page="Footer.jsp"></jsp:include>			

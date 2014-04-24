@@ -1,9 +1,15 @@
 package com.sparkmind.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.*;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 
 /**
@@ -11,6 +17,7 @@ import org.codehaus.jackson.annotate.JsonBackReference;
  * 
  */
 @Entity
+@Table (name="product", schema="test")
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,6 +32,10 @@ public class Product implements Serializable {
 	@ManyToOne(optional=false)
 	@JoinColumn(name="category_id",referencedColumnName="id", insertable=false, updatable=false)
 	private Category category;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy="productList") 
+	private Set<Order> orderList; //setting to list instead of set type errors in multiple bags can't be fetched
 	
 	
 	private String description;
@@ -45,6 +56,8 @@ public class Product implements Serializable {
 
 	private String shortname;
 
+	   
+	
 	public Product() {
 	}
 
@@ -134,6 +147,14 @@ public class Product implements Serializable {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public Set<Order> getOrderList() {
+		  return orderList;
+	}
+		   
+	public void setOrderList(Set<Order> orderList) {
+	  this.orderList = orderList;
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sparkmind.model.Category;
+import com.sparkmind.model.Order;
 import com.sparkmind.model.Product;
 
 @Service
@@ -73,5 +74,11 @@ public class ProductConfigServiceImpl implements ProductConfigService {
     @Transactional
     public void saveProduct(Product p){
     	em.persist(p);
+    }
+    
+    @Transactional
+    public void saveOrder(Order o){
+    	em.persist(o);		
+    	
     }
 }

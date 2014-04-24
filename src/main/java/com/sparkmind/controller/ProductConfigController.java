@@ -2,8 +2,12 @@ package com.sparkmind.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,11 +27,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sparkmind.model.Category;
+import com.sparkmind.model.Order;
 import com.sparkmind.model.Product;
 import com.sparkmind.model.ShoppingCart;
 import com.sparkmind.model.ShoppingCartItem;
 import com.sparkmind.model.ShoppingCartItemList;
 import com.sparkmind.model.User;
+import com.sparkmind.response.StatusResponse;
 import com.sparkmind.service.ProductConfigService;
 
 @Controller
@@ -159,4 +165,42 @@ public class ProductConfigController {
 		return shoppingCartItemMap;
 	}
 	
+	
+	@RequestMapping(value = "/confirmOrder", method = RequestMethod.POST)
+	public @ResponseBody StatusResponse confirmOrder(HttpServletRequest request){
+		
+		Order order = new Order();
+		
+		HttpSession session = request.getSession(true);
+		User user = (User)session.getAttribute("user");
+		order.setUserId(user.getId());
+		//order.setUserId(new Long(1));
+		
+		Set<Product> productSet = new HashSet<Product>();
+		float orderAmount=0;
+		
+		for(int id:shoppingCartItemMap.keySet()){
+			ShoppingCartItem s =shoppingCartItemMap.get(id);
+			Product p = new Product();
+			p.setId(s.getId());
+			productSet.add(p);
+			orderAmount+=s.getTotalprice();
+		}
+		order.setProductList(productSet);
+		order.setAmount(orderAmount);
+		
+		Random random = new Random();
+		int i = random.nextInt(999999999);
+		order.setConfirmationNumber(i);
+		
+		java.util.Date date= new java.util.Date();
+		order.setDateCreated(new Timestamp(date.getTime()));
+		
+		productConfigService.saveOrder(order);
+		
+		String userMessage="Order created successfully! Your Order No is:"+i;
+		System.out.println("Anupam is printing userMessage in product controller"+userMessage);
+		return new StatusResponse(true, userMessage);
+		//return i;
+	}
 }

@@ -2,8 +2,14 @@ package com.sparkmind.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -11,6 +17,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="order", schema="test")
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +25,7 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	private double amount;
+	private float amount;
 
 	@Column(name="date_created")
 	private Timestamp dateCreated;
@@ -27,11 +34,21 @@ public class Order implements Serializable {
 	private int orderstatusId;
 
 	@Column(name="user_id")
-	private int userId;
+	private Long userId;
+	
+	@Column(name="confirmation_number")
+	private int confirmationNumber;
 
 	//bi-directional many-to-one association to OrderHasProduct
-	@OneToMany(mappedBy="order")
-	private List<OrderHasProduct> orderHasProducts;
+	//@OneToMany(mappedBy="order")
+	//private List<OrderHasProduct> orderHasProducts;
+	
+	@JsonIgnore
+	@ManyToMany
+    @JoinTable(name="order_has_product",joinColumns=@JoinColumn(name="order_id", referencedColumnName="id"),
+			   inverseJoinColumns= @JoinColumn(name="product_id", referencedColumnName="id"))
+	private Set<Product> productList; ////setting to list instead of set type errors in multiple bags can't be fetched
+	
 
 	public Order() {
 	}
@@ -44,11 +61,11 @@ public class Order implements Serializable {
 		this.id = id;
 	}
 
-	public double getAmount() {
+	public float getAmount() {
 		return this.amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 
@@ -68,15 +85,32 @@ public class Order implements Serializable {
 		this.orderstatusId = orderstatusId;
 	}
 
-	public int getUserId() {
+	public Long getUserId() {
 		return this.userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
-	public List<OrderHasProduct> getOrderHasProducts() {
+	public Set<Product> getProductList() {
+		return productList;
+	}
+	
+	public void setProductList(Set<Product> productList) {
+		this.productList = productList;
+	}
+
+	public int getConfirmationNumber() {
+		return confirmationNumber;
+	}
+
+	public void setConfirmationNumber(int confirmationNumber) {
+		this.confirmationNumber = confirmationNumber;
+	}
+	
+	
+	/*public List<OrderHasProduct> getOrderHasProducts() {
 		return this.orderHasProducts;
 	}
 
@@ -96,6 +130,6 @@ public class Order implements Serializable {
 		orderHasProduct.setOrder(null);
 
 		return orderHasProduct;
-	}
+	}*/
 
 }
