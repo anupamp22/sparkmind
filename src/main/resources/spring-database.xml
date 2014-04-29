@@ -39,7 +39,7 @@
 
 		<!-- Declare a datasource that has pooling capabilities-->	
 	 	<beans profile="default">
-			<bean id="jpaDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+			<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 				destroy-method="close"
 				p:driverClass="${app.jdbc.driverClassName}"
 				p:jdbcUrl="${app.jdbc.url}"
@@ -55,7 +55,7 @@
 			<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" 
 				p:persistenceXmlLocation="classpath:persistence.xml"
 				p:persistenceUnitName="hibernatePersistenceUnit"
-				p:dataSource-ref="jpaDataSource"
+				p:dataSource-ref="dataSource"
 				p:jpaVendorAdapter-ref="hibernateVendor"/>
 		
 			<!-- Specify our ORM vendor -->

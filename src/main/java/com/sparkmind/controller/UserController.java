@@ -1,5 +1,7 @@
 package com.sparkmind.controller;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +9,7 @@ import java.util.UUID;
 
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -15,6 +18,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.social.connect.NotConnectedException;
+import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.FacebookProfile;
+import org.springframework.social.facebook.api.Reference;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,8 +42,8 @@ import com.sparkmind.service.UserService;
 
 @Controller
 @RequestMapping
-@Scope("session")
-public class UserController {
+//@Scope("session")
+public class UserController{
 	
 	protected static Logger logger = Logger.getLogger("service");
 	
@@ -44,6 +52,9 @@ public class UserController {
 	
 	@Autowired
 	private ContactService emailService;
+	
+	@Autowired
+	private ConnectionRepository facebookConnectionRepo;
 	
 	@Value("${localhost.baseURL}")
 	private String localbaseURL;
@@ -70,7 +81,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/logout/success")
-	public String logoutSuccess(){
+	public String logoutSuccess(HttpServletRequest request, Model model){
+		
+		HttpSession session = request.getSession(true);
+		session.removeAttribute("user");
+		session.removeAttribute("shoppingCartItemMap");
+		session.invalidate();
+		
+		//wiping everything off from model
+		model.asMap().clear();
+		
 		String message="Logout Success";
 		return "redirect:/login?message="+message;
 	}
@@ -228,5 +248,29 @@ public class UserController {
     	Map<String, Object> map = new HashMap<String, Object>();
     	map.put("user", accessService.getAllUsers());
     	return map;
+    }
+    
+    @RequestMapping(value="/facebook", method=RequestMethod.GET)
+    public String getFacebookPage(Model model, HttpServletRequest request, HttpServletResponse response){
+    	try{
+    		Facebook facebook = facebookConnectionRepo.getPrimaryConnection(Facebook.class).getApi();
+        	
+    		model.addAttribute("profileInfo", facebook.userOperations().getUserProfile());
+        	model.addAttribute("profileLink", facebook.userOperations().getUserProfile().getLink());
+        	//List<Reference> friendList = facebook.friendOperations().getFriendLists(facebook.userOperations().getUserProfile().getId());
+        	
+        	List<FacebookProfile> fb = new ArrayList<FacebookProfile>();
+        	
+        	for(String id:facebook.friendOperations().getFriendIds()){
+        		//System.out.println("Anupam is printing the friends"+id);
+        		fb.add(facebook.userOperations().getUserProfile(id));
+        	}
+        	model.addAttribute("friendList",fb); 
+        	return "facebook/facebook";
+    	}
+    	catch(NotConnectedException ex){
+    		return "facebook/connect";
+    	}
+    	
     }
 }

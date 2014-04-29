@@ -26,6 +26,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.googlecode.charts4j.Color;
+import com.googlecode.charts4j.GCharts;
+import com.googlecode.charts4j.PieChart;
+import com.googlecode.charts4j.Slice;
 import com.sparkmind.model.Category;
 import com.sparkmind.model.Order;
 import com.sparkmind.model.Product;
@@ -51,7 +55,7 @@ public class ProductConfigController {
 	private Map<Integer, Category> categoryMap;
 	private Map<Integer, Product> productMap;
 	
-	private Map<Integer, ShoppingCartItem> shoppingCartItemMap=new HashMap<Integer, ShoppingCartItem>();
+	private Map<Integer, ShoppingCartItem> shoppingCartItemMap =new HashMap<Integer, ShoppingCartItem>();
 	
 	private List<Category> categoryList;
 	
@@ -203,4 +207,42 @@ public class ProductConfigController {
 		return new StatusResponse(true, userMessage);
 		//return i;
 	}
+	
+	
+	@RequestMapping(value = "/drawCharts", method = RequestMethod.GET)
+	public String drawCharts(Model model){
+		Slice s1 = Slice.newSlice(15, Color.newColor("CACACA"), "Mac", "Mac");
+		Slice s2 = Slice.newSlice(15, Color.newColor("DF7417"), "Windows", "Windows");
+		Slice s3 = Slice.newSlice(15, Color.newColor("951800"), "Linux", "Linux");
+		Slice s4 = Slice.newSlice(15, Color.newColor("01A1DB"), "Others", "Others");
+		
+		PieChart pieChart = GCharts.newPieChart(s1,s2,s3,s4);
+		pieChart.setTitle("Google Pie Chart", Color.BLACK,15);
+		pieChart.setSize(720, 360);
+		pieChart.setThreeD(true);
+		
+		model.addAttribute("pieChart", pieChart.toURLString());
+		
+		return "chart";
+	}
+	
+	@RequestMapping(value = "/myOrdersByAjax", method = RequestMethod.GET)
+	public @ResponseBody List<Order> getMyOrdersThroughAjax(HttpServletRequest request){
+		
+		HttpSession session = request.getSession(true);
+		User user = (User)session.getAttribute("user");
+		
+		return productConfigService.getOrdersByUserId(user.getId());		
+	}
+	
+	@RequestMapping(value = "/myOrders", method = RequestMethod.GET)
+	public String getMyOrders(HttpServletRequest request, Model model){
+		
+		HttpSession session = request.getSession(true);
+		User user = (User)session.getAttribute("user");
+		List<Order> orderList = productConfigService.getOrdersByUserId(user.getId());
+		model.addAttribute("orderList", orderList);
+		return "myOrders";		
+	}
+	
 }

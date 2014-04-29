@@ -81,4 +81,10 @@ public class ProductConfigServiceImpl implements ProductConfigService {
     	em.persist(o);		
     	
     }
+    
+    @Transactional
+    public List<Order> getOrdersByUserId(Long userId){
+    	Query q = em.createQuery("FROM Order o where o.userId=:userId").setParameter("userId", userId);
+    	return q.getResultList();
+    }
 }

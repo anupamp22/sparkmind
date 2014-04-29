@@ -19,4 +19,5 @@ public interface ProductConfigService {
 	void saveCategory(Category c);
 	void saveProduct(Product p);
 	void saveOrder(Order o);
+	List<Order> getOrdersByUserId(Long userId);
 }

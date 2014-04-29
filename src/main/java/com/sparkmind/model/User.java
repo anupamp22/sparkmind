@@ -18,7 +18,9 @@ import org.codehaus.jackson.annotate.JsonManagedReference;
 @Entity
 //@Table (name="user", schema="public")
 @Table (name="user")
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	public User(){
 	}
 	public User(Long id, String firstName, String lastName, String email, String password, String userConfirmation, String guid, Role role){

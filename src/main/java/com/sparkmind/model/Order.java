@@ -108,28 +108,4 @@ public class Order implements Serializable {
 	public void setConfirmationNumber(int confirmationNumber) {
 		this.confirmationNumber = confirmationNumber;
 	}
-	
-	
-	/*public List<OrderHasProduct> getOrderHasProducts() {
-		return this.orderHasProducts;
-	}
-
-	public void setOrderHasProducts(List<OrderHasProduct> orderHasProducts) {
-		this.orderHasProducts = orderHasProducts;
-	}
-
-	public OrderHasProduct addOrderHasProduct(OrderHasProduct orderHasProduct) {
-		getOrderHasProducts().add(orderHasProduct);
-		orderHasProduct.setOrder(this);
-
-		return orderHasProduct;
-	}
-
-	public OrderHasProduct removeOrderHasProduct(OrderHasProduct orderHasProduct) {
-		getOrderHasProducts().remove(orderHasProduct);
-		orderHasProduct.setOrder(null);
-
-		return orderHasProduct;
-	}*/
-
 }

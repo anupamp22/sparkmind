@@ -21,6 +21,7 @@
     <mvc:view-controller path="/" view-name="index" />
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
     
     <mvc:annotation-driven/>
 
@@ -35,6 +36,9 @@
 	
 		<!-- Imports mail configuration -->
 	<import resource="spring-mail.xml"/>
+	
+	<!-- Imports spring social configuration -->
+	<import resource="spring-social.xml"/>
 	
 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
           p:location="classpath:spring.properties" />    

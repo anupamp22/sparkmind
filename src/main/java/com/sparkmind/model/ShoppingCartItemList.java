@@ -1,10 +1,12 @@
 package com.sparkmind.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 
-public class ShoppingCartItemList {
+public class ShoppingCartItemList implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	private String userId;
 	private String deliveryinstructions;

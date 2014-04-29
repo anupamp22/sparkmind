@@ -21,6 +21,8 @@
 		<intercept-url pattern="/user" access="hasRole('ROLE_USER')"/>
 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/configurator" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/facebook" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/drawCharts" access="permitAll"/>
 		
 		<form-login login-page="/login" 
 			authentication-failure-url="/login/failure" 

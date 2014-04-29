@@ -38,6 +38,7 @@
 				$('#addToCartBtn').click(function(event){
 					event.preventDefault();
 					$('#RoatatingWheel').fadeIn();
+					//showPopup();
                    var selectedProducts=[];
 					$('input:checked').each(function(){
 						selectedProducts.push($(this).val());
@@ -181,6 +182,19 @@
 			    //$('#total').text(total);
 			    $("#total").text('$' + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString());
 			}
+			
+			function showPopup() {
+				$('body').css('overflow', 'hidden');
+				$('#popup').fadeIn('fast');
+				$('#mask').fadeIn('fast');
+			}
+
+			function closePopup() {
+				$('#popup').fadeOut('fast');
+				$('#mask').fadeOut('fast');
+				$('body').css('overflow', 'auto');
+			}
+			
 		</script>
 		
 	</head>
@@ -189,10 +203,21 @@
 		<jsp:include page="Header.jsp"></jsp:include>
 		<%
 			session.getAttribute("shoppingCartItemMap");
-		%>		
+		%>
+		
+		<div id="mask" style="display: none;"></div>
+		<div id="popup" style="display: none;">
+			<div class="container" id="insertHere">
+				<div class="span-1 append-23 last">
+					<p><a href="#" onclick="closePopup();">Close</a></p>
+				</div>
+			</div>
+		</div>		
+
 		<div id="content">
 			<p>&nbsp;&nbsp;&nbsp;</p>
-			<span class="message">Welcome ${user.firstName} ${user.lastName}</span>
+			<!-- <span class="message">Welcome ${user.firstName} ${user.lastName}</span> -->
+			<p><b>Welcome <i>${user.firstName} ${user.lastName} !</i></b></p>
 			<h2> Product Configurator </h2>
 			
 			<div id="categoryDiv">
