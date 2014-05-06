@@ -9,7 +9,7 @@
 
 <html>
 	<head>
-			<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
+			<jsp:include page="common/HeadFilesInclude.jsp"></jsp:include>
 			<title>SparkMind Login</title>
 			<script type="text/javascript">
 			$(function(){
@@ -40,7 +40,7 @@
 	</head>
 
 		<body>
-			<jsp:include page="Header.jsp" />
+			<jsp:include page="common/Header.jsp" />
 			<div id="content">
 					<p>&nbsp;&nbsp;&nbsp;</p>
 					<h2>Login success </h2>
@@ -71,7 +71,7 @@
 			   <h3>I'm a header</h3>
 			   <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
 			</div> -->
-			<jsp:include page="Footer.jsp" />
+			<jsp:include page="common/Footer.jsp" />
 			
 	</body>
 </html>

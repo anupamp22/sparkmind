@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,16 +55,18 @@ public class ProductConfigController {
 	
 	private Map<Integer, Category> categoryMap;
 	private Map<Integer, Product> productMap;
-	
-	private Map<Integer, ShoppingCartItem> shoppingCartItemMap =new HashMap<Integer, ShoppingCartItem>();
+	private Map<Integer, ShoppingCartItem> shoppingCartItemMap;//=new HashMap<Integer, ShoppingCartItem>();
 	
 	private List<Category> categoryList;
+	
+	private Map<Integer, Set<Product>> orderMap;
 	
 	public void initialize(){
 		categoryMap = new HashMap<Integer, Category>();
 		productMap = new HashMap<Integer, Product>();
-		//shoppingCartItemMap = new HashMap<Integer, ShoppingCartItem>();
-		
+		//if (shoppingCartItemMap.size()<=0 && shoppingCartItemMap==null){
+		shoppingCartItemMap = new HashMap<Integer, ShoppingCartItem>();
+		//}
 		categoryList = new ArrayList<Category>();
 		
 		categoryList = productConfigService.getAllCategories();
@@ -146,7 +149,7 @@ public class ProductConfigController {
 				shoppingCartItemMap.remove(id);
 			}
 		}*/
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		session.setAttribute("shoppingCartItemMap", shoppingCartItemMap);
 		return shoppingCartItemMap;
 	}
@@ -163,7 +166,7 @@ public class ProductConfigController {
 				}
 			}
 		}
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		session.setAttribute("shoppingCartItemMap", shoppingCartItemMap);
 		
 		return shoppingCartItemMap;
@@ -175,7 +178,7 @@ public class ProductConfigController {
 		
 		Order order = new Order();
 		
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		order.setUserId(user.getId());
 		//order.setUserId(new Long(1));
@@ -223,13 +226,13 @@ public class ProductConfigController {
 		
 		model.addAttribute("pieChart", pieChart.toURLString());
 		
-		return "chart";
+		return "charts/chart";
 	}
 	
 	@RequestMapping(value = "/myOrdersByAjax", method = RequestMethod.GET)
 	public @ResponseBody List<Order> getMyOrdersThroughAjax(HttpServletRequest request){
 		
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		
 		return productConfigService.getOrdersByUserId(user.getId());		
@@ -238,11 +241,22 @@ public class ProductConfigController {
 	@RequestMapping(value = "/myOrders", method = RequestMethod.GET)
 	public String getMyOrders(HttpServletRequest request, Model model){
 		
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		User user = (User)session.getAttribute("user");
 		List<Order> orderList = productConfigService.getOrdersByUserId(user.getId());
 		model.addAttribute("orderList", orderList);
-		return "myOrders";		
+		
+		orderMap = new HashMap<Integer, Set<Product>> ();
+		for (Order o:orderList){
+			orderMap.put(o.getConfirmationNumber(), o.getProductList());
+		}
+		//System.out.println("Printing OrderMap in getMyOrders function"+orderMap);
+		return "myOrders";
 	}
 	
+	@RequestMapping(value = "/myOrders/{orderId}", method = RequestMethod.GET)
+	public @ResponseBody Set<Product> getMyOrders(@PathVariable("orderId") Integer orderId /*@RequestParam Integer OrderId*/){
+		Order o = productConfigService.getProductsForOrder(orderId);
+		return o.getProductList();
+	}
 }

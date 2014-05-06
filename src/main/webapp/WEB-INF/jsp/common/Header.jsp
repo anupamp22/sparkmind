@@ -47,7 +47,7 @@
 				</ul>
 			</li>
 			<li><a href="#" id="a_ManagementTeam">Management Team</a></li>
-			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="_blank">Our blogs</a></li>
+			<li><a href="http://apriyada.blogspot.com/" id="a_blogs" target="myIframe">Our blogs</a></li>
 			<li><a href="${pageContext.request.contextPath}/email" id="a_contact">Contact us</a></li>
 			<li><a href="#" id="a_UserLogin">User Login</a>
 					<ul>

@@ -6,7 +6,7 @@
 
 <html>
 	<head>
-		<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
+		<jsp:include page="common/HeadFilesInclude.jsp"></jsp:include>
 		<title>SparkMind Login</title>
 		<script type='text/javascript'>
 			$(function(){
@@ -36,7 +36,7 @@
 	</head>
 
 	<body>
-	<jsp:include page="Header.jsp" />
+	<jsp:include page="common/Header.jsp" />
 	<div id="content">
 			<p>&nbsp;&nbsp;&nbsp;</p>
 			<h2>Sign up</h2>
@@ -59,7 +59,7 @@
 	<div id="rightMessageContent" class="blocks">
 	 	<p class="message">${message}</p>
 	 </div>
-	<jsp:include page="Footer.jsp" />
+	<jsp:include page="common/Footer.jsp" />
 	
 	</body>
 </html>

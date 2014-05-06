@@ -5,12 +5,12 @@
 
 <html>
 <head>
-	<jsp:include page="HeadFilesInclude.jsp" />
+	<jsp:include page="common/HeadFilesInclude.jsp" />
 	<title>SparkMind Inc.</title>
 </head>
 
 <body>
-	<jsp:include page="Header.jsp" />
+	<jsp:include page="common/Header.jsp" />
 	<div id="content">
 		<!--<h1><b>About SparkMind </b>Inc.</h1> -->
 		<div id ="Home">
@@ -64,6 +64,9 @@
 				<h2>Error</h2>
 				<p> This page is in construction. Please visit later.
 				</p>			
+			</div>
+			<div id="iframeDiv">
+				<iframe src="" name = "myIframe" id="myIframe"></iframe>			
 			</div>
 		</div>
 		<!--  <div id="div_contact">
@@ -202,7 +205,7 @@
 		</div>
 	</div>
 	<div id='msgbox' title='' style='display:none'></div>
-	<jsp:include page="Footer.jsp" />
+	<jsp:include page="common/Footer.jsp" />
 	<style type="text/css"> @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css") </style>
 </body>
 

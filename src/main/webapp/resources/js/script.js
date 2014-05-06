@@ -26,6 +26,8 @@ $(document).ready(function(){
 	$('#error').hide();
 	$('#ManagementTeam').hide();
 	$('#searchResults').hide();
+	$('#iframeDiv').hide();
+	
 
 	$('#a_home').click(function(){
 		$('#Home').toggle();
@@ -34,6 +36,7 @@ $(document).ready(function(){
 		$('#Mission').hide();
 		$('#ManagementTeam').hide();
 		$('#searchResults').hide();
+		$('#iframeDiv').hide();
 	});
 
 	$('#a_company').click(function(){
@@ -43,6 +46,7 @@ $(document).ready(function(){
 		$('#Mission').hide();
 		$('#ManagementTeam').hide();
 		$('#searchResults').hide();
+		$('#iframeDiv').hide();
 	});
 	$('#a_vision').click(function(){
 		$('#Home').hide();
@@ -51,6 +55,7 @@ $(document).ready(function(){
 		$('#Mission').hide();
 		$('#div_contact').hide();
 		$('#searchResults').hide();
+		$('#iframeDiv').hide();
 	});
 	$('#a_mission').click(function(){
 		$('#Home').hide();
@@ -59,6 +64,7 @@ $(document).ready(function(){
 		$('#Mission').toggle();
 		$('#ManagementTeam').hide();
 		$('#searchResults').hide();
+		$('#iframeDiv').hide();
 	});
 	$('#search').click(function(){
 		$('#Home').hide();
@@ -66,7 +72,8 @@ $(document).ready(function(){
 		$('#Vision').hide();
 		$('#Mission').hide();
 		$('#ManagementTeam').hide();
-		$('#searchResults').show();		
+		$('#searchResults').show();
+		$('#iframeDiv').hide();
 	});
 	$('#a_ManagementTeam').click(function(){
 		$('#Home').hide();
@@ -74,7 +81,18 @@ $(document).ready(function(){
 		$('#Vision').hide();
 		$('#Mission').hide();
 		$('#ManagementTeam').toggle();
-		$('#searchResults').hide();		
+		$('#searchResults').hide();
+		$('#iframeDiv').hide();
+	});
+	
+	$('#a_blogs').click(function(){
+		$('#Home').hide();
+		$('#Company').hide();
+		$('#Vision').hide();
+		$('#Mission').hide();
+		$('#ManagementTeam').hide();
+		$('#searchResults').hide();
+		$('#iframeDiv').show();
 	});
 	
 	
@@ -178,13 +196,7 @@ function initialize(){
     				buttons:{"ok":function(){
     					$(this).dialog("close");}
     				}
-    					
-    			});    				
-    }//end of dialog function 			
-    	
+    			});
+    }//end of dialog function 
     
-    
-    
-    
- 
 	

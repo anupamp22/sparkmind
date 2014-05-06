@@ -6,7 +6,7 @@
 
 <html>
 	<head>
-		<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
+		<jsp:include page="common/HeadFilesInclude.jsp"></jsp:include>
 		<title>Product Configurator</title>
 		
 		<script type="text/javascript">
@@ -200,7 +200,7 @@
 	</head>
 	
 	<body>
-		<jsp:include page="Header.jsp"></jsp:include>
+		<jsp:include page="common/Header.jsp"></jsp:include>
 		<%
 			session.getAttribute("shoppingCartItemMap");
 		%>
@@ -265,7 +265,7 @@
 								<tr>
 							</thead>
 							<tbody>
-									<c:forEach items="${shoppingCartItemMap.values()}" var="item">
+									<!--<c:forEach items="${shoppingCartItemMap.values()}" var="item">
 									 <tr>
 										<td>${item.name}</td>
 										<td>${item.price} </td>
@@ -273,7 +273,7 @@
 										<td>${item.totalprice}</td>
 										<td> </td>
 									</tr>
-									</c:forEach>
+									</c:forEach>-->
 							</tbody>
 					     </table>
 					<input class="command" type="submit" name="action" value="Proceed to checkout" accesskey="A" id="checkoutCartBtn" />
@@ -314,6 +314,6 @@
 				</label>-->	
 		</div>
 			
-		<jsp:include page="Footer.jsp"></jsp:include>			
+		<jsp:include page="common/Footer.jsp"></jsp:include>			
 	</body>
 </html>

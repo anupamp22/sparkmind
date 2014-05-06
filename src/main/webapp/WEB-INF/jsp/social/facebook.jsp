@@ -12,12 +12,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Facebook Connection successful</title>
-	<jsp:include page="../HeadFilesInclude.jsp"></jsp:include>
+	<jsp:include page="../common/HeadFilesInclude.jsp"></jsp:include>
 </head>
 
 
 <body>
-	<jsp:include page="../Header.jsp"></jsp:include>
+	<jsp:include page="../common/Header.jsp"></jsp:include>
 	<!-- <p> Welcome to your facebook page <i><%=SecurityContextHolder.getContext().getAuthentication().getName()%> ! </i></p> -->
 	<!-- <p> Welcome ${pageContext.request.userPrincipal.name} !</p>  -->
 	<!--<p> Welcome ${user.id} ${user.firstName} ${user.lastName} ${user.email}!</p>-->
@@ -44,6 +44,6 @@
 		</datatables:table>
 		</div>
 	</div>
-	<jsp:include page="../Footer.jsp"></jsp:include>
+	<jsp:include page="../common/Footer.jsp"></jsp:include>
 </body>
 </html>

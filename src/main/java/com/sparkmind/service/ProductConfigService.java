@@ -1,5 +1,6 @@
 package com.sparkmind.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.sparkmind.model.Category;
@@ -20,4 +21,5 @@ public interface ProductConfigService {
 	void saveProduct(Product p);
 	void saveOrder(Order o);
 	List<Order> getOrdersByUserId(Long userId);
+	Order getProductsForOrder(int OrderConfirmationNumber);
 }

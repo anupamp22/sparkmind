@@ -1,5 +1,6 @@
 package com.sparkmind.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -86,5 +87,12 @@ public class ProductConfigServiceImpl implements ProductConfigService {
     public List<Order> getOrdersByUserId(Long userId){
     	Query q = em.createQuery("FROM Order o where o.userId=:userId").setParameter("userId", userId);
     	return q.getResultList();
+    }
+    
+    @Transactional
+    public Order getProductsForOrder(int orderId){
+    	Query q = em.createQuery("SELECT distinct o FROM Order o LEFT JOIN FETCH o.productList where o.id=:orderId");
+    	q.setParameter("orderId", orderId);
+    	return (Order) q.getSingleResult();
     }
 }

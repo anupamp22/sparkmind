@@ -96,7 +96,7 @@
 </head>
 
 <body>
-	<jsp:include page="Header.jsp" />
+	<jsp:include page="common/Header.jsp" />
 	<!-- <h1 id='banner'>Compose Email</h1> -->
 	
 	<div id=content>
@@ -134,7 +134,7 @@
 		 <p class="message">${mesg}</p>	
 	</div>	
 	<div id='msgbox' title='' style='display:none'></div>
-	<jsp:include page="Footer.jsp" />
+	<jsp:include page="common/Footer.jsp" />
 	
 </body>
 </html>

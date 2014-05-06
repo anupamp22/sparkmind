@@ -36,5 +36,5 @@
 <script type='text/javascript' src="resources/js/util.js"></script>
 <script type="text/javascript" src="resources/js/Form2JSON.js"></script>
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />-->
 <!-- <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script> -->

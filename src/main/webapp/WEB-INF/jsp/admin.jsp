@@ -8,7 +8,7 @@
 
 <html>
 	<head>
-		<jsp:include page="HeadFilesInclude.jsp"></jsp:include>
+		<jsp:include page="common/HeadFilesInclude.jsp"></jsp:include>
 		<title>SparkMind Admin Page</title>
 		
 		<script type="text/javascript">
@@ -160,7 +160,7 @@
 		</script>
 	</head>
 	<body>
-		<jsp:include page="Header.jsp"></jsp:include>
+		<jsp:include page="common/Header.jsp"></jsp:include>
 		<div id="content">
 			<p>&nbsp;&nbsp;&nbsp;</p>
 			<h2>All user data</h2>
@@ -242,6 +242,6 @@
 			
 		</div>
 			
-		<jsp:include page="Footer.jsp"></jsp:include>
+		<jsp:include page="common/Footer.jsp"></jsp:include>
 	</body>
 </html>

@@ -43,35 +43,66 @@
   </servlet-mapping>
   
   <!-- Dandelion-Datatables servlet definition -->
-<servlet>
-    <servlet-name>datatablesController</servlet-name>
-    <servlet-class>com.github.dandelion.datatables.extras.servlet2.servlet.DatatablesServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>datatablesController</servlet-name>
-    <url-pattern>/datatablesController/*</url-pattern>
-</servlet-mapping>
+	<servlet>
+	    <servlet-name>datatablesController</servlet-name>
+	    <servlet-class>com.github.dandelion.datatables.extras.servlet2.servlet.DatatablesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>datatablesController</servlet-name>
+	    <url-pattern>/datatablesController/*</url-pattern>
+	</servlet-mapping>
 
 <!-- Dandelion-Datatables filter definition (used for export) -->
-<filter>
-    <filter-name>datatablesFilter</filter-name>
-    <filter-class>com.github.dandelion.datatables.extras.servlet2.filter.DatatablesFilter</filter-class>
-</filter>
-<filter-mapping>
-    <filter-name>datatablesFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-</filter-mapping>
+	<filter>
+	    <filter-name>datatablesFilter</filter-name>
+	    <filter-class>com.github.dandelion.datatables.extras.servlet2.filter.DatatablesFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>datatablesFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
   
 <!-- Register Spring Social filter so that we can disconnect from providers -->
-<filter>
-<filter-name>hiddenHttpMethodFilter</filter-name>
-<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-</filter>
+	<filter>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	 <filter-mapping>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> 
+
+<!-- Trying to keep the hibernate session open for lazy fetch -->
+  <!-- <filter>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+    </filter>
  
-<filter-mapping>
-<filter-name>hiddenHttpMethodFilter</filter-name>
-<url-pattern>/*</url-pattern>
-</filter-mapping> 
-  
+    <filter-mapping>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> -->
+      <filter>
+        <filter-name>
+            OpenEntityManagerInViewFilter
+        </filter-name>
+            <filter-class>
+                org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+            </filter-class>
+            <!-- <init-param>
+                <param-name>singleSession</param-name>
+                <param-value>true</param-value>
+            </init-param>
+            <init-param>
+                <param-name>flushMode</param-name>
+                <param-value>AUTO</param-value>
+            </init-param> -->
+    </filter>
+    <!-- Include this if you are using Hibernate -->
+    <filter-mapping>
+        <filter-name>OpenEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
   
 </web-app>

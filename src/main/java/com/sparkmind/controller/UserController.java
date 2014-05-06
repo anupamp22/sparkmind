@@ -81,9 +81,9 @@ public class UserController{
 	}
 	
 	@RequestMapping(value = "/logout/success")
-	public String logoutSuccess(HttpServletRequest request, Model model){
+	public String logoutSuccess(HttpSession session, Model model){
 		
-		HttpSession session = request.getSession(true);
+		//HttpSession session = request.getSession(false);
 		session.removeAttribute("user");
 		session.removeAttribute("shoppingCartItemMap");
 		session.invalidate();
@@ -99,7 +99,7 @@ public class UserController{
 	public String getUserPage(HttpServletRequest request){
 		//Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();	
 		
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		User user = accessService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
 		session.setAttribute("user", user);
 		
@@ -266,10 +266,10 @@ public class UserController{
         		fb.add(facebook.userOperations().getUserProfile(id));
         	}
         	model.addAttribute("friendList",fb); 
-        	return "facebook/facebook";
+        	return "social/facebook";
     	}
     	catch(NotConnectedException ex){
-    		return "facebook/connect";
+    		return "social/connect";
     	}
     	
     }
