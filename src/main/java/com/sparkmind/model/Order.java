@@ -18,6 +18,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name="order", schema="test")
+//@Table(name="order", schema="public")
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 

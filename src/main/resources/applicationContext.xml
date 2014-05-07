@@ -40,7 +40,10 @@
 	<!-- Imports spring social configuration -->
 	<import resource="spring-social.xml"/>
 	
+	<!-- Imports spring tools configuration -->
+	<import resource="spring-tools.xml"/>
+	
 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
-          p:location="classpath:spring.properties" />    
+          p:location="classpath:spring.properties" />
 
 </beans>

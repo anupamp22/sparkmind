@@ -1,1 +1,2 @@
 Adding quantity field in the Order_product join table
+Adding the cache functionality

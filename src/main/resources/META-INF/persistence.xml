@@ -10,8 +10,6 @@
     	<class>com.sparkmind.model.Price</class>
     	<class>com.sparkmind.model.Creditcard</class>
     	<class>com.sparkmind.model.Order</class>
-    	<class>com.sparkmind.model.OrderHasProduct</class>
-    	<class>com.sparkmind.model.OrderHasProductPK</class>
     	<class>com.sparkmind.model.Orderstatus</class>
     </persistence-unit>
 
