@@ -17,8 +17,8 @@ import org.hibernate.annotations.FetchMode;
  * 
  */
 @Entity
-@Table (name="product", schema="test")
-//@Table (name="product", schema="public")
+//@Table (name="product", schema="test")
+@Table (name="product", schema="public")
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 

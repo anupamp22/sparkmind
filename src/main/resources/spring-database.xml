@@ -38,7 +38,7 @@
 		p:entityManagerFactory-ref="entityManagerFactory"/>
 	
 		<!-- Declare a datasource that has pooling capabilities-->	
-	 	<beans profile="default">
+	 	<beans profile="default_mysql">
 			<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 				destroy-method="close"
 				p:driverClass="${app.jdbc.driverClassName}"
@@ -63,7 +63,7 @@
 			            p:showSql="false"/>	
 		</beans>
 
-		 <beans profile="default_postgresql">
+		 <beans profile="default">
         <!-- <jdbc:embedded-database id="dataSource"/> -->
         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 			<property name="driverClassName" value="org.postgresql.Driver"/>
