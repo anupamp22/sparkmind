@@ -15,8 +15,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sparkmind.repository.UserRepository;
-
 @Service
 @Transactional(readOnly = true)
 public class CustomUserDetailsService implements UserDetailsService{
@@ -25,7 +23,6 @@ public class CustomUserDetailsService implements UserDetailsService{
 	
 	@Autowired
 	private UserService accessService;
-	//private UserRepository accessService;
 	
 	@Override
 	public UserDetails loadUserByUsername(String email)

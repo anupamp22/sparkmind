@@ -4,7 +4,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<c:url value="/batch/job1" var="batchJob1Url"/>
 
 <html>
 	<head>
@@ -155,7 +155,19 @@
 								});
 					}
 					
-					
+					$('#firstJobBtn').click(function(event){
+						event.preventDefault();
+						$('#RoatatingWheel').fadeIn(); 
+						$.get('${batchJob1Url}', function(response) {
+							if (response.success == true) {
+								alert('Job 1 imported');
+								loadUsers();
+								$("#RoatatingWheel").fadeOut('slow');
+							} else if (response.success == false) {
+								alert(response.message[0]);
+							}
+						});
+					});
 			});			
 		</script>
 	</head>
@@ -163,6 +175,7 @@
 		<jsp:include page="common/Header.jsp"></jsp:include>
 		<div id="content">
 			<p>&nbsp;&nbsp;&nbsp;</p>
+			<input type='button' value='Import Users & Role data' id='firstJobBtn' />
 			<h2>All user data</h2>
 			
 			<table class="table table-bordered table-striped" id="tableUsers">
@@ -239,9 +252,7 @@
 		               </fieldset>
 	            </form>                     	
 			</div>			
-			
 		</div>
-			
 		<jsp:include page="common/Footer.jsp"></jsp:include>
 	</body>
 </html>

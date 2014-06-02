@@ -8,7 +8,8 @@
 <c:url value="logout" var="logoutUrl"/>
 <c:url value="configurator" var="configuratorUrl"/>
 <c:url value="myOrders" var="myordersUrl"/>
-<c:url value="user" var="myProfile"/>
+<c:url value="user" var="myProfileUrl"/>
+<c:url value="myangular" var="myangularUrl"/>
 
 <div id="masthead">
 		<a href="<c:url value="/"/>" id="homelink"><img src="${pageContext.request.contextPath}/resources/image/sparkmind.gif" alt="my company image"/></a>
@@ -54,9 +55,10 @@
 						<sec:authorize var="loggedIn" access="isAuthenticated()">
 							<c:choose>
 								<c:when test="${loggedIn}">
-									<li><a href="${myProfile}">My Profile</a></li>
+									<li><a href="${myProfileUrl}">My Profile</a></li>
 									<li><a href="${myordersUrl}">My Orders</a></li>
 									<li><a href="${configuratorUrl}">Product Configurator</a></li>
+									<li><a href="${myangularUrl}">Angular way</a></li>
 									<sec:authorize access="hasRole('ROLE_ADMIN')">
 										<li><a href="${adminUrl}">Admin</a></li>
 									</sec:authorize>

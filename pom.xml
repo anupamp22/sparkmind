@@ -32,10 +32,29 @@
 		<spring.social.facebook.version>1.1.0.M1</spring.social.facebook.version>
 		<spring.social.twitter.version>1.1.0.M1</spring.social.twitter.version>
 		<httpclient.version>4.2.1</httpclient.version>
+		
 		<!-- ehcache-->
 		<ehcache.version>2.6.6</ehcache.version>
-	  	
-    </properties>
+		
+		<!-- spring batch-->
+		<spring.batch.version>2.1.8.RELEASE</spring.batch.version>
+		
+		<!-- Web dependencies -->
+		<!-- <webjars-bootstrap.version>2.3.0</webjars-bootstrap.version>
+		<webjars-jquery-ui.version>1.9.2</webjars-jquery-ui.version>
+		<webjars-jquery.version>1.9.0</webjars-jquery.version>
+		<webjars-jquery.version>2.1.1</webjars-jquery.version>
+		<webjars-jquery-ui.version>1.10.4</webjars-jquery-ui.version> -->
+		
+		<webjars-bootstrap.version>2.3.2</webjars-bootstrap.version>
+		<webjars-jquery.version>1.9.0</webjars-jquery.version>
+		<webjars-jquery-ui.version>1.9.2</webjars-jquery-ui.version>
+		
+		<!-- mongodb dependencies -->
+		<spring.data.mongodb.version>1.0.0.RELEASE</spring.data.mongodb.version>
+		<mongodb.driver.version>2.7.2</mongodb.driver.version>
+		<spring.data.commons.version>1.2.0.RELEASE</spring.data.commons.version>
+	</properties>
 
     <dependencies>
      	<!-- Spring Core -->
@@ -274,11 +293,21 @@
 				<version>0.9.3</version>
 			</dependency>
 			
-			<!-- webjars -->
+			<!-- Webjars (static dependencies distributed as JAR files) -->
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>bootstrap</artifactId>
+				<version>${webjars-bootstrap.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.webjars</groupId>
 				<artifactId>jquery-ui</artifactId>
-				<version>1.9.1</version>
+				<version>${webjars-jquery-ui.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>jquery</artifactId>
+				<version>${webjars-jquery.version}</version>
 			</dependency>
 			
 			
@@ -321,6 +350,37 @@
 			</exclusions>
 		</dependency>
 	
+		<!-- Spring Batch -->
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-core</artifactId>
+			<version>${spring.batch.version}</version>
+		</dependency>
+		
+		
+		<!-- Spring Data MongoDB -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>${spring.data.mongodb.version}</version>
+	    	<type>jar</type>
+	    	<scope>compile</scope>
+		</dependency>
+		
+		<!--  MongoDB Java Driver -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>${mongodb.driver.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		 
+		 <dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons-core</artifactId>
+			<version>${spring.data.commons.version}</version>		
+		</dependency>
 
     	<!-- Original POM -->
         <dependency>

@@ -262,7 +262,6 @@ public class UserController{
         	List<FacebookProfile> fb = new ArrayList<FacebookProfile>();
         	
         	for(String id:facebook.friendOperations().getFriendIds()){
-        		//System.out.println("Anupam is printing the friends"+id);
         		fb.add(facebook.userOperations().getUserProfile(id));
         	}
         	model.addAttribute("friendList",fb); 
@@ -273,4 +272,25 @@ public class UserController{
     	}
     	
     }
+    
+    @RequestMapping(value="/myangular",  method = RequestMethod.GET)
+	public String getmyBlogs(){		
+		//model.addAttribute("message", message);		
+		return "myangular";
+	}
+    
+    @RequestMapping(value="/search/user",  method = RequestMethod.GET)
+    public @ResponseBody List<User> searchUser(@RequestParam("q") String query){
+    	return accessService.findUsers(query);
+	}
+    
+    @RequestMapping(value="/users",  method = RequestMethod.GET)
+    public @ResponseBody User findUserById(@PathVariable Long id){
+    	return accessService.getUserById(id);
+	}
+    
+    @RequestMapping(value="/users/{id}",  method = RequestMethod.POST)
+    public @ResponseBody User saveUsersById(@PathVariable Long id, @RequestBody User user){
+    	return accessService.updateUser(user);
+	}
 }

@@ -29,11 +29,12 @@ public class UserServiceImpl implements UserService {
 		Query query = em.createQuery("SELECT DISTINCT user from User user join fetch user.role WHERE user.email=:email");
 		query.setParameter("email", email);
 		return (User) query.getSingleResult();
-		
-		/*User user = (User)em.createQuery("FROM User u where u.username=:username")
-					.setParameter("username", username)
-					.getSingleResult();
-		return user;*/
+	}	
+	@Override
+	public List<User> findUsers(String query){
+		String sqlName = ("%" + query + "%").toLowerCase();
+		Query q = em.createQuery("FROM User u WHERE u.email like :email").setParameter("email", sqlName);
+		return q.getResultList();
 	}
 
 	@Override

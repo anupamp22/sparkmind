@@ -24,24 +24,30 @@
     <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
     
     <mvc:annotation-driven/>
-
     <tx:annotation-driven />
-
 
  	<!-- Imports logging configuration -->
 	<import resource="trace-context.xml"/>
 	
-	<!-- Imports datasource configuration -->
+	<!-- Imports datasource configurations (Database connections) -->
 	<import resource="spring-database.xml"/>
 	
-		<!-- Imports mail configuration -->
+	<!-- Imports mail configuration (SMTP Host configurations) -->
 	<import resource="spring-mail.xml"/>
 	
-	<!-- Imports spring social configuration -->
+	<!-- Imports spring social configurations (Connecting facebook, twitter through OAuth) -->
 	<import resource="spring-social.xml"/>
 	
-	<!-- Imports spring tools configuration -->
+	<!-- Imports spring tools configurations (EhCache Implementation) -->
 	<import resource="spring-tools.xml"/>
+	
+	<!-- Imports spring batch configurations (Batch data load) -->
+	<import resource="classpath:batch/spring-batch.xml"/>
+	<import resource="classpath:batch/spring-batch-job1.xml"/>
+	
+	<!-- Imports mongodb configurations (Database connections) 
+	<import resource="spring-mongodb.xml"/>-->
+	
 	
 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
           p:location="classpath:spring.properties" />
